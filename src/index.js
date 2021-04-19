@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import Login from './components/pages/auth/Login'
-import SignUp from './components/pages/auth/SignUp'
+import App from './components/App';
+import Login from './pages/auth/Login'
+import SignUp from './pages/auth/SignUp'
 import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 import {ChakraProvider} from "@chakra-ui/react";
+import firebase from "./firebase";
 
 const Root = () => {
     return (

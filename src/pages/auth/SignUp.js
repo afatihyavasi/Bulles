@@ -1,21 +1,37 @@
 import {
-    Flex, Box, FormControl, FormLabel,
+    Flex, Box, FormControl, FormLabel,Text,
     Input, Stack, Button, Heading, Container,
     useColorModeValue, Tooltip, InputGroup, InputRightElement, FormErrorMessage
 } from '@chakra-ui/react';
 import {useState} from 'react';
 import {useForm} from "react-hook-form";
+import {useFirebase} from "react-redux-firebase";
 import Nav from '../../components/Nav';
 
 const SignUp = () => {
     const [show, setShow] = useState(false);
-    const handleClick = () => setShow(!show);
+    const [fbErrors, setFbErrors] = useState('');
+    const [submit, setSubmit] = useState(false);
+
     const {register, formState: {errors}, handleSubmit} = useForm();
+    const firebase = useFirebase();
 
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = ({username, email, password}) => {
+        setSubmit(true);
+        setFbErrors('');
+        const [first, last] = username.split(' ');
 
+        firebase.createUser({email, password},
+            {name: username, avatar: `${first + last}`},
+        ).then(user => {
+            setSubmit(false);
+        }).catch((err) => {
+            setFbErrors(err.message);
+            console.log(err.message);
+            setSubmit(false);
+        });
     }
+    const handleClick = () => setShow(!show);
     return (
         <>
             <Container px={10}>
@@ -71,22 +87,28 @@ const SignUp = () => {
                                     </InputGroup>
                                     <FormErrorMessage>
                                         {errors.password && "Password length must be at least 6 characters long"}
-                                    </FormErrorMessage>
 
+                                    </FormErrorMessage>
                                 </FormControl>
-                                <Stack spacing={10}>
+                                <Stack spacing={5}>
                                     <Tooltip label="Join party 🎉">
                                         <Button
                                             bg={'purple.100'}
                                             color={'purple.600'}
                                             my={'3'}
                                             type='submit'
+                                            isLoading={submit}
                                             _hover={{
                                                 bg: 'purple.200',
                                             }}>
                                             Sign Up
                                         </Button>
                                     </Tooltip>
+                                    <Stack>
+                                        {fbErrors && <Text fontSize="sm" p={2} bg={'red.100'} color={'red.500'} rounded>
+                                            {`${fbErrors}`}
+                                        </Text>}
+                                    </Stack>
                                 </Stack>
                             </form>
                         </Stack>

@@ -6,7 +6,7 @@ import {
 import {useState} from 'react';
 import {useForm} from "react-hook-form";
 import {useFirebase} from "react-redux-firebase";
-import Nav from '../../components/Nav';
+import NavForAuth from '../../components/Nav/NavForAuth';
 
 const SignUp = () => {
     const [show, setShow] = useState(false);
@@ -24,18 +24,16 @@ const SignUp = () => {
         firebase.createUser({email, password},
             {name: username, avatar: `${first + last}`},
         ).then(user => {
-            setSubmit(false);
+
         }).catch((err) => {
             setFbErrors(err.message);
-            console.log(err.message);
-            setSubmit(false);
-        });
+        }).finally((() => setSubmit(false)));
     }
     const handleClick = () => setShow(!show);
     return (
         <>
             <Container px={10}>
-                <Nav/>
+                <NavForAuth/>
             </Container>
 
             <Flex
@@ -87,7 +85,6 @@ const SignUp = () => {
                                     </InputGroup>
                                     <FormErrorMessage>
                                         {errors.password && "Password length must be at least 6 characters long"}
-
                                     </FormErrorMessage>
                                 </FormControl>
                                 <Stack spacing={5}>
@@ -105,7 +102,7 @@ const SignUp = () => {
                                         </Button>
                                     </Tooltip>
                                     <Stack>
-                                        {fbErrors && <Text fontSize="sm" p={2} bg={'red.100'} color={'red.500'} rounded>
+                                        {fbErrors && <Text fontSize="sm" align={'center'} p={2} bg={'red.100'} color={'red.500'} rounded='md'>
                                             {`${fbErrors}`}
                                         </Text>}
                                     </Stack>
@@ -118,8 +115,5 @@ const SignUp = () => {
         </>
     )
 }
-// }; onChange={(event, {name, value}) => {
-//     setValue(name, value);
-// }}/>
 
 export default SignUp;

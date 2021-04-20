@@ -12,25 +12,40 @@ import {
     Container,
     useColorModeValue, InputGroup, InputRightElement
 } from '@chakra-ui/react';
-import Nav from '../../components/Nav';
+import NavForAuth from '../../components/Nav/NavForAuth';
 import {useState} from 'react';
 import {Link as _Link} from 'react-router-dom';
 import {useForm} from "react-hook-form";
+import {useFirebase} from "react-redux-firebase";
+
 
 const Login = () => {
     const [isFocus, setIsFocus] = useState(false);
     const [show, setShow] = useState(false);
-    const handleClick = () => setShow(!show);
+    const [fbErrors, setFbErrors] = useState('');
+    const [submit, setSubmit] = useState(false);
+
+    const firebase = useFirebase();
     const {register, formState: {errors}, handleSubmit} = useForm();
 
-    const onSubmit = (data) => {
-        console.log(data);
-    };
+    const onSubmit = ({email, password}) => {
+        setSubmit(true);
+        setFbErrors('');
+        firebase.login({email, password})
+            .then(data => {
+                console.log(data);
+            })
+            .catch((err) => {
+                setFbErrors(err.message);
+            })
+            .finally((() => setSubmit(false)));
 
+    };
+    const handleClick = () => setShow(!show);
     return (
         <>
             <Container px={10}>
-                <Nav/>
+                <NavForAuth/>
             </Container>
 
             <Flex
@@ -81,6 +96,7 @@ const Login = () => {
                                     <Button
                                         bg={'purple.100'}
                                         mt={4}
+                                        isLoading={submit}
                                         color={'purple.600'}
                                         type='submit'
                                         _hover={{
@@ -92,8 +108,8 @@ const Login = () => {
                                         <Text display={'flex'} justifyContent="space-around" alignItems="center"
                                               color={useColorModeValue('gray.600', 'gray.200')} fontSize='sm'>Don't
                                             have an account?{" "}
-                                            <_Link to="/signup">
-                                                <Link color={'teal.400'} p='1.5' rounded={'sm'} _hover={
+
+                                                <Link as={_Link} to="/signup" color={'teal.400'} p='1.5' rounded={'sm'} _hover={
                                                     {
                                                         bg: 'teal.100',
                                                         color: 'teal.600'
@@ -101,8 +117,14 @@ const Login = () => {
                                                 }>
                                                     Sign up
                                                 </Link>
-                                            </_Link>
+
                                         </Text>
+                                    </Stack>
+                                    <Stack>
+                                        {fbErrors &&
+                                        <Text fontSize="sm" p={2} bg={'red.100'} color={'red.500'} rounded='md' align={'center'}>
+                                            {`${fbErrors}`}
+                                        </Text>}
                                     </Stack>
                                 </Stack>
                             </Stack>

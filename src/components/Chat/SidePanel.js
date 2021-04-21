@@ -1,12 +1,11 @@
 import {
-    Button,
     Flex,
     Text,
     Stack,
     useColorModeValue
 } from "@chakra-ui/react";
 import NewChannelModal from "./NewChannelModal";
-
+import ChannelList from "./ChannelList";
 
 const SidePanel = () => {
 
@@ -29,15 +28,7 @@ const SidePanel = () => {
             </Stack>
 
             {/*Channels*/}
-            <Flex direction="column" align='center' mt={'250px'}>
-                {
-                    [...new Array(5)].map((item, index) => {
-                        return (
-                            <Button key={index} my={'5px'}>#Channel {index}</Button>
-                        )
-                    })
-                }
-            </Flex>
+            <ChannelList/>
 
         </Flex>
     );

@@ -8,6 +8,7 @@ import {
 import NewChannelModal from "./NewChannelModal";
 
 
+
 const SidePanel = () => {
 
     return (
@@ -25,6 +26,7 @@ const SidePanel = () => {
 
             {/*New Channel Modal */}
             <Stack spacing={4}>
+
                <NewChannelModal/>
             </Stack>
 
@@ -33,7 +35,7 @@ const SidePanel = () => {
                 {
                     [...new Array(5)].map((item, index) => {
                         return (
-                            <Button my={'5px'}>#Channel {index}</Button>
+                            <Button key={index} my={'5px'}>#Channel {index}</Button>
                         )
                     })
                 }

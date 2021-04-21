@@ -15,18 +15,21 @@ import {useFirebase} from "react-redux-firebase";
 
 
 const NewChannelModal = () => {
-    const {isOpen, onOpen, onClose} = useDisclosure();
+    const {isOpen, onOpen,onClose} = useDisclosure();
     const initialRef = useRef();
     const firebase = useFirebase();
-    const {register, handleSubmit, formState: {errors}, reset} = useForm();
+    const {register, handleSubmit, reset} = useForm();
 
     const onSubmit = ({channelName, description}) => {
         firebase.push("channels", {
             channelName,
             description,
         });
+        resetFieldsAndClose();
+    }
+    const resetFieldsAndClose = () => {
+        onClose(isOpen);
         reset();
-
     }
 
     return (
@@ -41,11 +44,10 @@ const NewChannelModal = () => {
                 <ModalOverlay/>
                 <ModalContent>
                     <ModalHeader>Create new channel</ModalHeader>
-                    <ModalCloseButton/>
+                    <ModalCloseButton onClick={resetFieldsAndClose}/>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <ModalBody pb={6}>
-
-                            <FormControl isInvalid={errors.channelName} isRequired>
+                            <FormControl isRequired>
                                 <FormLabel>Channel Name</FormLabel>
                                 <InputGroup>
                                     <InputLeftAddon children={'#'}/>
@@ -53,9 +55,6 @@ const NewChannelModal = () => {
                                            {...register('channelName', {required: 'true'})}
                                     />
                                 </InputGroup>
-                                <FormErrorMessage>
-                                    {errors.channelName && "Channel name be a required"}
-                                </FormErrorMessage>
                             </FormControl>
 
                             <FormControl mt={4}>
@@ -66,10 +65,10 @@ const NewChannelModal = () => {
                         </ModalBody>
 
                         <ModalFooter>
-                            <Button colorScheme="purple" w='80px' mr={3} type='submit' onClick={onClose}>
+                            <Button colorScheme="purple" w='80px' mr={3} type='submit'>
                                 Save
                             </Button>
-                            <Button onClick={onClose} w='80px'>Cancel</Button>
+                            <Button onClick={resetFieldsAndClose} w='80px'>Cancel</Button>
                         </ModalFooter>
                     </form>
                 </ModalContent>

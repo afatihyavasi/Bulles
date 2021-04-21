@@ -1,20 +1,19 @@
-import {Box, Stack, Flex, Text} from '@chakra-ui/react';
-import DarkModeToggle from "../components/Nav/DarkModeToogle";
+import {Box, Stack, Flex, Text, useColorModeValue} from '@chakra-ui/react';
+
 import SidePanel from "../components/Chat/SidePanel";
+import ChatArea from "../components/Chat/ChatArea";
 
 function App() {
     return (
         <>
             {/*Web*/}
-            <Box display={['none', 'block']} p='20px'>
+            <Box display={['none', 'block']}>
                 <Flex >
-                    <Stack h='100vh' bg={'red.500'} w='25%'>
+                    <Stack h='100vh' w='25%' bg={useColorModeValue('gray.50','gray.500')}>
                         <SidePanel/>
                     </Stack>
-                    <Stack h='100vh' bg='blue.500' w='75%'>
-                        <Text>
-                            Lorem ipsum dolor sit amet.
-                        </Text>
+                    <Stack h='100vh'w='75%'>
+                        <ChatArea/>
                     </Stack>
                 </Flex>
             </Box>

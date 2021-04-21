@@ -14,7 +14,6 @@ import {Provider} from 'react-redux';
 import {ReactReduxFirebaseProvider} from "react-redux-firebase";
 
 
-
 const rrfConfig = {
     userProfile: 'users'
 }

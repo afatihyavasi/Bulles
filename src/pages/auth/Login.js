@@ -106,20 +106,22 @@ const Login = () => {
                                               color={useColorModeValue('gray.600', 'gray.200')} fontSize='sm'>Don't
                                             have an account?{" "}
 
-                                                <Link as={_Link} to="/signup" color={'teal.400'} p='1.5' rounded={'sm'} _hover={
-                                                    {
-                                                        bg: 'teal.100',
-                                                        color: 'teal.600'
-                                                    }
-                                                }>
-                                                    Sign up
-                                                </Link>
+                                            <Link as={_Link} to="/signup" color={'teal.400'} p='1.5' rounded={'sm'}
+                                                  _hover={
+                                                      {
+                                                          bg: 'teal.100',
+                                                          color: 'teal.600'
+                                                      }
+                                                  }>
+                                                Sign up
+                                            </Link>
 
                                         </Text>
                                     </Stack>
                                     <Stack>
                                         {fbErrors &&
-                                        <Text fontSize="sm" p={2} bg={'red.100'} color={'red.500'} rounded='md' align={'center'}>
+                                        <Text fontSize="sm" p={2} bg={'red.100'} color={'red.500'} rounded='md'
+                                              align={'center'}>
                                             {`${fbErrors}`}
                                         </Text>}
                                     </Stack>

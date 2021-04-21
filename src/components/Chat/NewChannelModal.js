@@ -1,12 +1,12 @@
 import {
     Button,
-    FormControl, FormErrorMessage, FormLabel, Input, InputGroup, InputLeftAddon,
+    FormControl, FormLabel, Input, InputGroup, InputLeftAddon,
     Modal,
     ModalBody,
     ModalCloseButton,
     ModalContent, ModalFooter,
     ModalHeader,
-    ModalOverlay, useDisclosure
+    ModalOverlay, Tooltip, useDisclosure
 } from "@chakra-ui/react";
 import {AddIcon} from "@chakra-ui/icons";
 import {useRef} from "react";
@@ -15,7 +15,7 @@ import {useFirebase} from "react-redux-firebase";
 
 
 const NewChannelModal = () => {
-    const {isOpen, onOpen,onClose} = useDisclosure();
+    const {isOpen, onOpen, onClose} = useDisclosure();
     const initialRef = useRef();
     const firebase = useFirebase();
     const {register, handleSubmit, reset} = useForm();
@@ -34,7 +34,9 @@ const NewChannelModal = () => {
 
     return (
         <>
-            <Button rightIcon={<AddIcon/>} size={'xs'} onClick={onOpen}>New Channel</Button>
+            <Tooltip label={'Create new channel'} aria-label='a tooltip'>
+                <Button rightIcon={<AddIcon/>} size={'xs'} onClick={onOpen}>New Channel</Button>
+            </Tooltip>
             <Modal
                 initialFocusRef={initialRef}
                 isOpen={isOpen}

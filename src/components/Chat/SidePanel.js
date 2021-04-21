@@ -8,7 +8,6 @@ import {
 import NewChannelModal from "./NewChannelModal";
 
 
-
 const SidePanel = () => {
 
     return (
@@ -26,8 +25,7 @@ const SidePanel = () => {
 
             {/*New Channel Modal */}
             <Stack spacing={4}>
-
-               <NewChannelModal/>
+                <NewChannelModal/>
             </Stack>
 
             {/*Channels*/}

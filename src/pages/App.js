@@ -8,11 +8,11 @@ function App() {
         <>
             {/*Web*/}
             <Box display={['none', 'block']}>
-                <Flex >
-                    <Stack h='100vh' w='25%' bg={useColorModeValue('gray.50','gray.500')}>
+                <Flex>
+                    <Stack h='100vh' w='25%' bg={useColorModeValue('gray.50', 'gray.500')}>
                         <SidePanel/>
                     </Stack>
-                    <Stack h='100vh'w='75%'>
+                    <Stack h='100vh' w='75%'>
                         <ChatArea/>
                     </Stack>
                 </Flex>

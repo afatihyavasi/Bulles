@@ -1,13 +1,12 @@
-import {Flex, Icon, Text, Avatar, useColorModeValue, Center, IconButton,useColorMode} from "@chakra-ui/react";
+import {Flex, Text, Avatar, useColorModeValue, Center} from "@chakra-ui/react";
 import DarkModeToggle from "../Nav/DarkModeToogle";
-import {LogOutDarkI,LogOutLightI} from "../../assets/icons/LogOut";
-
+import LogOut from "../Nav/LogOut";
 
 const ChatNav = () => {
-    const {colorMode} = useColorMode();
+
     return (
 
-        <Flex h={'70px'} bg={useColorModeValue('gray.50','gray.500')} justify={'space-between'}>
+        <Flex h={'70px'} bg={useColorModeValue('gray.50', 'gray.500')} justify={'space-between'}>
             <Center ml={'10px'}>
                 <DarkModeToggle/>
             </Center>
@@ -18,7 +17,7 @@ const ChatNav = () => {
                     <Text mr={'20px'} fontWeight={'bold'}> Test User</Text>
                 </Flex>
                 <Center mx={'10px'}>
-                    <IconButton aria-label={'log-out'} icon={<Icon as={colorMode === "light" ? LogOutLightI : LogOutDarkI}  mx={'10px'} />}></IconButton>
+                    <LogOut/>
                 </Center>
             </Center>
         </Flex>

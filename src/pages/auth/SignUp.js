@@ -1,5 +1,5 @@
 import {
-    Flex, Box, FormControl, FormLabel,Text,
+    Flex, Box, FormControl, FormLabel, Text,
     Input, Stack, Button, Heading, Container,
     useColorModeValue, Tooltip, InputGroup, InputRightElement, FormErrorMessage
 } from '@chakra-ui/react';
@@ -101,7 +101,9 @@ const SignUp = () => {
                                         </Button>
                                     </Tooltip>
                                     <Stack>
-                                        {fbErrors && <Text fontSize="sm" align={'center'} p={2} bg={'red.100'} color={'red.500'} rounded='md'>
+                                        {fbErrors &&
+                                        <Text fontSize="sm" align={'center'} p={2} bg={'red.100'} color={'red.500'}
+                                              rounded='md'>
                                             {`${fbErrors}`}
                                         </Text>}
                                     </Stack>

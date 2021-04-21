@@ -14,6 +14,7 @@ import {Provider} from 'react-redux';
 import {ReactReduxFirebaseProvider} from "react-redux-firebase";
 
 
+
 const rrfConfig = {
     userProfile: 'users'
 }
@@ -31,7 +32,7 @@ const Root = () => {
             if (user) {
                 history.push("/app")
             } else {
-                history.push("/")
+                history.push("/login")
             }
         })
     }, [])

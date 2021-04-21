@@ -32,9 +32,6 @@ const Login = () => {
         setSubmit(true);
         setFbErrors('');
         firebase.login({email, password})
-            .then(data => {
-                console.log(data);
-            })
             .catch((err) => {
                 setFbErrors(err.message);
             })

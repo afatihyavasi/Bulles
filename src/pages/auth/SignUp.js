@@ -19,10 +19,9 @@ const SignUp = () => {
     const onSubmit = ({username, email, password}) => {
         setSubmit(true);
         setFbErrors('');
-        const [first, last] = username.split(' ');
 
         firebase.createUser({email, password},
-            {name: username, avatar: `${first + last}`},
+            {name: username, avatar: username.charAt(0)},
         ).then(user => {
 
         }).catch((err) => {

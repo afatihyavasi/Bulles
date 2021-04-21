@@ -14,10 +14,10 @@ const ChatNav = () => {
 
             <Center>
                 <Flex alignItems={'center'} bg={'red-500'} border="1px" borderColor="gray.200" rounded={'lg'}>
-                    <Avatar size='xs' src="https://bit.ly/broken-link" mx={'15px'} my={'10px'}/>
+                    <Avatar size='xs' src="https://bit.ly/broken-link" mx={'15px'} my={'7px'}/>
                     <Text mr={'20px'} fontWeight={'bold'}> Test User</Text>
                 </Flex>
-                <Center >
+                <Center mx={'10px'}>
                     <IconButton aria-label={'log-out'} icon={<Icon as={colorMode === "light" ? LogOutLightI : LogOutDarkI}  mx={'10px'} />}></IconButton>
                 </Center>
             </Center>

@@ -12,18 +12,23 @@ import {AddIcon} from "@chakra-ui/icons";
 import {useRef} from "react";
 import {useForm} from "react-hook-form";
 import {useFirebase} from "react-redux-firebase";
-
+import {useSelector} from "react-redux";
 
 const NewChannelModal = () => {
     const {isOpen, onOpen, onClose} = useDisclosure();
     const initialRef = useRef();
     const firebase = useFirebase();
+    const profile = useSelector(state => state.firebase.profile);
     const {register, handleSubmit, reset} = useForm();
 
     const onSubmit = ({channelName, description}) => {
         firebase.push("channels", {
             channelName,
             description,
+            createdBy: {
+                name: profile.name,
+                avatar: profile.avatar,
+            },
         });
         resetFieldsAndClose();
     }

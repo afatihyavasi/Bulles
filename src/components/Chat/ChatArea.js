@@ -1,10 +1,29 @@
-import ChatNav from "./ChatNav";
+import {useState} from 'react'
+import {Flex} from '@chakra-ui/react'
+import NewMessageInput from "./NewMessageInput";
+import CurrentChannelInfoBar from "./CurrentChannelInfoBar";
+import Messages from "./Messages";
 
-const ChatArea = () => {
+
+const ChatArea = ({currentChannel}) => {
+
+    const [searchQuery, setSearchQuery] = useState('');
+
+
     return (
-        <div>
-            <ChatNav/>
-        </div>
+        <Flex direction={'column'} w={'100%'} h={'92vh'}>
+
+            {/*Channel name and desc*/}
+            <CurrentChannelInfoBar currentChannel={currentChannel}/>
+
+            {/*Messages section*/}
+            <Flex h={'84%'}>
+              <Messages currentChannel={currentChannel}/>
+            </Flex>
+
+            {/*Create new message*/}
+            <NewMessageInput currentChannel={currentChannel}/>
+        </Flex>
     );
 };
 

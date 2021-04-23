@@ -20,8 +20,15 @@ const SignUp = () => {
         setSubmit(true);
         setFbErrors('');
 
-        firebase.createUser({email, password},
-            {name: username, avatar: username.charAt(0)},
+        firebase.createUser(
+            {
+                email,
+                password
+            },
+            {
+                name: username,
+                avatar: username.charAt(0)
+            },
         ).then(user => {
 
         }).catch((err) => {

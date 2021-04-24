@@ -18,7 +18,7 @@ const ChatNav = () => {
 
             <Center>
                 <Flex alignItems={'center'} bg={'red-500'} border="1px" borderColor="gray.200" rounded={'lg'}>
-                    <Avatar size='xs'  bg={'gray.600'}  mx={'15px'} my={'7px'}/>
+                    <Avatar size='xs' bg={'gray.600'} mx={'15px'} my={'7px'}/>
                     <Text mr={'20px'} fontWeight={'bold'}> {profile.name}</Text>
                 </Flex>
                 <Center mx={'10px'}>

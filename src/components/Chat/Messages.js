@@ -1,9 +1,10 @@
+import {useRef, useEffect} from "react";
 import {useFirebaseConnect} from "react-redux-firebase";
 import {useSelector} from "react-redux";
 import {
     Text, Flex, Avatar, Box, Divider,
     useColorModeValue, Tag, TagLabel, Image, useDisclosure,
-    Modal, ModalOverlay, ModalCloseButton, ModalBody, ModalContent,ModalHeader
+    Modal, ModalOverlay, ModalCloseButton, ModalBody, ModalContent, ModalHeader
 } from '@chakra-ui/react';
 import moment from "moment";
 
@@ -19,16 +20,24 @@ const Messages = ({currentChannel}) => {
         path: 'users',
         storeAs: 'users',
     }])
-    const {isOpen, onOpen, onClose} = useDisclosure()
 
+    const {isOpen, onOpen, onClose} = useDisclosure()
     const channelMessages = useSelector(state => state.firebase.ordered.channelMessages);
     const timeFromNow = timeStamp => moment(timeStamp).fromNow();
     const timeColor = useColorModeValue('gray.400', 'gray.500');
     const isMedia = value => value.hasOwnProperty("image");
+    const lastMessageRef = useRef(null);
+
+    /*For scroll end of the page when new message arrive */
+    useEffect(() => {
+        lastMessageRef.current.scrollIntoView({
+            behavior: 'smooth',
+            block: 'end'
+        })
+    })
+
 
     return (
-
-
         <div style={{overflow: 'auto', width: '100%'}}>
             {channelMessages && channelMessages.map(({key, value}) => {
                 return (
@@ -40,7 +49,6 @@ const Messages = ({currentChannel}) => {
                                     <Avatar bg={'gray.600'} size={'2xs'} ml={'2px'}/>
                                     <TagLabel ml={'5px'}>{value.user.name}</TagLabel>
                                 </Tag>
-
                                 <Text fontSize={"xs"}
                                       color={timeColor}>
                                     {timeFromNow(value.timestamp)}</Text>
@@ -58,7 +66,6 @@ const Messages = ({currentChannel}) => {
                                     />
                                     : <Text m={'5px'}>{value.content}</Text>
                                 }
-
                             </Flex>
                             <Divider/>
                         </Box>
@@ -89,6 +96,7 @@ const Messages = ({currentChannel}) => {
                     </>
                 )
             })}
+            <div ref={lastMessageRef}></div>
         </div>
 
     );

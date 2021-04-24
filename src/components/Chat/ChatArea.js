@@ -7,8 +7,6 @@ import Messages from "./Messages";
 
 const ChatArea = ({currentChannel}) => {
 
-    const [searchQuery, setSearchQuery] = useState('');
-
 
     return (
         <Flex direction={'column'} w={'100%'} h={'92vh'}>

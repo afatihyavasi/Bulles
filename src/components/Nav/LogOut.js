@@ -6,8 +6,6 @@ import {useFirebase} from "react-redux-firebase";
 const LogOut = () => {
     const {colorMode} = useColorMode();
     const firebase = useFirebase();
-    const profile = useSelector(state => state.firebase.profile);
-
     const signOut = () => {
         firebase.logout();
     }

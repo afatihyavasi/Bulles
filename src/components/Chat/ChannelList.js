@@ -12,12 +12,12 @@ const ChannelList = () => {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-            if (!mounted && !isEmpty(channels)) {
-                const {key, value} = channels[0];
-                setActiveChannel({key, ...value});
-                setMounted(true)
-            }
-        },)
+        if (!mounted && !isEmpty(channels)) {
+            const {key, value} = channels[0];
+            setActiveChannel({key, ...value});
+            setMounted(true)
+        }
+    },)
 
     const setActiveChannel = (channel) => {
         dispatch(setCurrentChannel(channel));

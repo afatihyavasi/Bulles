@@ -5,8 +5,10 @@ import {
 } from '@chakra-ui/react';
 import {useState} from 'react';
 import {useForm} from "react-hook-form";
-import {useFirebase} from "react-redux-firebase";
+import {useFirebase, useFirebaseConnect} from "react-redux-firebase";
 import NavForAuth from '../../components/Nav/NavForAuth';
+import {useSelector} from "react-redux";
+import pickRandomColor from "../../helpers/pickRandomColor";
 
 const SignUp = () => {
     const [show, setShow] = useState(false);
@@ -15,6 +17,14 @@ const SignUp = () => {
 
     const {register, formState: {errors}, handleSubmit} = useForm();
     const firebase = useFirebase();
+
+    useFirebaseConnect([{
+        path: 'users',
+        storeAs: 'users',
+    }])
+
+    const usersData = useSelector(state => state.firebase.ordered.users);
+
 
     const onSubmit = ({username, email, password}) => {
         setSubmit(true);
@@ -27,7 +37,8 @@ const SignUp = () => {
             },
             {
                 name: username,
-                avatar: username.charAt(0)
+                avatar: username.charAt(0),
+                color:pickRandomColor(usersData)
             },
         ).then(user => {
 

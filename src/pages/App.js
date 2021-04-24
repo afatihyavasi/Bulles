@@ -14,7 +14,7 @@ function App() {
                     <Box h='100vh' w='25%' bg={useColorModeValue('gray.50', 'gray.500')}>
                         <SidePanel/>
                     </Box>
-                    <Box h='100vh' w='75%' >
+                    <Box h='100vh' w='75%'>
                         <ChatNav/>
                         {currentChannel && <ChatArea currentChannel={currentChannel}/>}
                     </Box>
@@ -49,4 +49,5 @@ export default App;
 //TODO:Login olunca otomatik app routing i degistirmeye calis
 //TODO: Fallback , HomePage sayfalarini da tasarla
 //TODO: Env ayarlarini ayarlaa
+//TODO: Color picker yap
 

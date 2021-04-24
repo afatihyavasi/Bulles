@@ -18,7 +18,7 @@ const ChatArea = ({currentChannel}) => {
 
             {/*Messages section*/}
             <Flex h={'84%'}>
-              <Messages currentChannel={currentChannel}/>
+                <Messages currentChannel={currentChannel}/>
             </Flex>
 
             {/*Create new message*/}

@@ -32,7 +32,7 @@ const Messages = ({currentChannel}) => {
             behavior: 'smooth',
             block: 'end'
         })
-    },[])
+    })
 
 
     return (
@@ -54,12 +54,12 @@ const Messages = ({currentChannel}) => {
 
                             <Flex>
                                 {isMedia(value) ? <Link href={value.image} isExternal><Image htmlWidth={'400px'}
-                                                               htmlHeight={'300px'}
-                                                               rounded={'sm'}
-                                                               m={'5px'}
-                                                               src={value.image}
-                                                               alt={`${value.user.name} send it`}
-                                                               cursor={'pointer'}
+                                                                                             htmlHeight={'300px'}
+                                                                                             rounded={'sm'}
+                                                                                             m={'5px'}
+                                                                                             src={value.image}
+                                                                                             alt={`${value.user.name} send it`}
+                                                                                             cursor={'pointer'}
                                     /></Link>
                                     : <Text m={'5px'}>{value.content}</Text>
                                 }
@@ -69,7 +69,7 @@ const Messages = ({currentChannel}) => {
                     </>
                 )
             })}
-            <div ref={lastMessageRef}></div>{/**/}
+            <div ref={lastMessageRef}></div>
         </div>
 
     );

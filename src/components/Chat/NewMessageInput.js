@@ -15,7 +15,6 @@ const NewMessageInput = ({currentChannel}) => {
 
     const uploadMedia = (event) => {
         const file = event.target.files[0];
-
         if (file) {
             const storageRef = firebase.storage().ref();
             const fileRef = storageRef.child(`chat/public/${uuid()}.jpg`);
@@ -47,7 +46,6 @@ const NewMessageInput = ({currentChannel}) => {
                 });
         }
     }
-
 
     const sendMediaMessage = (url) => {
         const message = {

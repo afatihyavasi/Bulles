@@ -1,16 +1,8 @@
 import {
-    Flex,
-    Box,
-    FormControl,
-    FormLabel,
-    Input,
-    Link,
-    Stack,
-    Button,
-    Heading,
-    Text,
-    Container,
-    useColorModeValue, InputGroup, InputRightElement
+    Flex, Box, FormControl, FormLabel, Input, Link, InputRightElement,
+    Stack, Button, Heading, Text, Container, InputGroup,
+    useToast, useDisclosure, useColorModeValue,
+    Modal, ModalOverlay, ModalHeader, ModalBody, ModalCloseButton, ModalContent
 } from '@chakra-ui/react';
 import NavForAuth from '../../components/Nav/NavForAuth';
 import {useState} from 'react';
@@ -24,9 +16,13 @@ const Login = () => {
     const [show, setShow] = useState(false);
     const [fbErrors, setFbErrors] = useState('');
     const [submit, setSubmit] = useState(false);
+    const [resetEmail, setResetEmail] = useState('');
 
     const firebase = useFirebase();
     const {register, formState: {errors}, handleSubmit} = useForm();
+
+    const {isOpen, onOpen, onClose} = useDisclosure();
+    const toast = useToast();
 
     const onSubmit = ({email, password}) => {
         setSubmit(true);
@@ -38,6 +34,31 @@ const Login = () => {
             .finally((() => setSubmit(false)));
 
     };
+
+    const onResetFormSubmit = (event) => {
+        event.preventDefault();
+        onClose(true);
+        firebase.resetPassword(resetEmail)
+            .then(() => {
+                toast({
+                    description: `Reset password mail sent to ${resetEmail} successfully.`,
+                    status: "success",
+                    duration: 5000,
+                    isClosable: true,
+                })
+            })
+            .catch(() => {
+                toast({
+                    title: `Sorry. Something get wrong.`,
+                    status: "error",
+                    duration: 2000,
+                    isClosable: true,
+                })
+            })
+            .finally(setResetEmail(''));
+
+    }
+
     const handleClick = () => setShow(!show);
     return (
         <>
@@ -74,7 +95,50 @@ const Login = () => {
                                            {...register('email', {required: 'true'})}/>
                                 </FormControl>
                                 <FormControl id="password" isInvalid={errors.password}>
-                                    <FormLabel>Password</FormLabel>
+                                    <Flex justify={'space-between'}>
+                                        <FormLabel>
+                                            Password
+                                        </FormLabel>
+                                        {/*Forgot password modal*/}
+
+                                        <Text cursor='pointer' color={useColorModeValue('pink.400', 'pink.200')}
+                                              mt='5px' fontSize={'xs'} fontWeight={'medium'}
+                                              bg={'none'}
+                                              _hover={{
+                                                  color: useColorModeValue('pink.200', 'pink.400'),
+                                              }}
+                                              onClick={onOpen}>Forgot your password ?</Text>
+
+                                        <Modal isOpen={isOpen} onClose={onClose}>
+                                            <ModalOverlay/>
+                                            <ModalContent>
+                                                <ModalHeader>Reset your password</ModalHeader>
+                                                <ModalCloseButton/>
+                                                <form onSubmit={onResetFormSubmit}>
+                                                    <ModalBody>
+
+                                                        <FormControl>
+                                                            <FormLabel>Email</FormLabel>
+                                                            <Input type="email"
+                                                                   placeholder={'E-mail'}
+                                                                   value={resetEmail}
+                                                                   onChange={e => setResetEmail(e.target.value)}/>
+                                                        </FormControl>
+                                                    </ModalBody>
+
+
+                                                    <Flex justify={'center'} my={'20px'}>
+                                                        <Button colorScheme="yellow" mr={3} type='submit'>
+                                                            Submit
+                                                        </Button>
+                                                    </Flex>
+
+                                                </form>
+                                            </ModalContent>
+                                        </Modal>
+                                        {/*Forgot password modal end*/}
+                                    </Flex>
+
                                     <InputGroup>
                                         <Input type={show ? 'text' : 'password'} placeholder="Password"
                                                onFocus={() => setIsFocus(!isFocus)}
@@ -89,7 +153,8 @@ const Login = () => {
                                     </InputGroup>
                                 </FormControl>
 
-                                <Stack spacing={5}>
+
+                                <Stack>
                                     <Button
                                         bg={'purple.100'}
                                         mt={4}

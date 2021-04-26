@@ -129,7 +129,7 @@ const Login = () => {
 
                                                     <Flex justify={'center'} my={'20px'}>
                                                         <Button colorScheme="yellow" mr={3} type='submit'>
-                                                            Submit
+                                                            Reset Password
                                                         </Button>
                                                     </Flex>
 

@@ -3,7 +3,7 @@ import {AddIcon} from "@chakra-ui/icons";
 import {useState, useRef} from "react";
 import {useFirebase} from "react-redux-firebase";
 import {useSelector} from "react-redux";
-import {v4 as uuid} from 'uuid'
+import {v4 as uuid} from 'uuid';
 
 const NewMessageInput = ({currentChannel}) => {
 

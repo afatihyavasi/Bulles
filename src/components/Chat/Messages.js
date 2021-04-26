@@ -21,6 +21,7 @@ const Messages = ({currentChannel}) => {
     }])
 
     const channelMessages = useSelector(state => state.firebase.ordered.channelMessages);
+    const users = useSelector(state => state.firebase.ordered.users);
     const timeFromNow = timeStamp => moment(timeStamp).fromNow();
     const timeColor = useColorModeValue('gray.400', 'gray.500');
     const isMedia = value => value.hasOwnProperty("image");
@@ -34,6 +35,13 @@ const Messages = ({currentChannel}) => {
         })
     })
 
+    const findUserAvatar = (userName) => {
+        const avatar = users?.find((user)=>{
+            if(user.value.name === userName) return user.value.avatar;
+        })
+
+        return avatar?.value.avatar;
+    }
 
     return (
         <div style={{overflow: 'auto', width: '100%'}}>
@@ -44,7 +52,8 @@ const Messages = ({currentChannel}) => {
                         <Box my={'5px'} key={key}>
                             <Flex align={'center'}>
                                 <Tag colorScheme={value.user.color} mx={'5px'}>
-                                    <Avatar bg={'gray.600'} size={'2xs'} ml={'2px'}/>
+                                    <Avatar bg={'gray.600'} src={findUserAvatar(value.user.name)} size={'2xs'}
+                                            ml={'2px'}/>
                                     <TagLabel ml={'5px'}>{value.user.name}</TagLabel>
                                 </Tag>
                                 <Text fontSize={"xs"}

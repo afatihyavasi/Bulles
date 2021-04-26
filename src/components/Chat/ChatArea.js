@@ -1,4 +1,4 @@
-import {useState} from 'react'
+
 import {Flex} from '@chakra-ui/react'
 import NewMessageInput from "./NewMessageInput";
 import CurrentChannelInfoBar from "./CurrentChannelInfoBar";

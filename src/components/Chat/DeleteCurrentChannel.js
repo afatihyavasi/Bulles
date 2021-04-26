@@ -4,11 +4,26 @@ import {
     Button, Text, useDisclosure, PopoverTrigger, Tooltip
 } from "@chakra-ui/react";
 import {DeleteIcon} from "@chakra-ui/icons";
+import {useFirebase} from "react-redux-firebase";
+import {useDispatch, useSelector} from "react-redux";
+import {setCurrentChannel} from "../../store/actions/channel";
 
 
-const DeleteCurrentChannel = ({currentChannel}) => {
+const DeleteCurrentChannel = () => {
 
-    const {onOpen, onClose, isOpen} = useDisclosure()
+    const {onOpen, onClose, isOpen} = useDisclosure();
+    const dispatch = useDispatch();
+    const firebase = useFirebase();
+    const channels = useSelector(state => state.firebase.ordered.channels);
+    const currentChannel = useSelector(state => state.channelReducer.currentChannel);
+
+
+    const handleClick = () => {
+        onClose(true);
+        firebase.remove(`channels/${currentChannel.key}`)
+            .finally(dispatch(setCurrentChannel(null)));
+    }
+
 
     return (
         <>
@@ -31,8 +46,8 @@ const DeleteCurrentChannel = ({currentChannel}) => {
                 </PopoverTrigger>
                 <PopoverContent>
                     <PopoverHeader fontWeight="semibold">Confirmation</PopoverHeader>
-                    <PopoverArrow />
-                    <PopoverCloseButton />
+                    <PopoverArrow/>
+                    <PopoverCloseButton/>
                     <PopoverBody display={'flex'}>
                         Are you sure delete
                         <Text fontWeight="semibold" mx={'3px'}>
@@ -43,7 +58,7 @@ const DeleteCurrentChannel = ({currentChannel}) => {
                     <PopoverFooter d="flex" justifyContent="flex-end">
                         <ButtonGroup size="sm">
                             <Button variant="outline" onClick={onClose}>Cancel</Button>
-                            <Button colorScheme="red">Yes</Button>
+                            <Button colorScheme="red" onClick={handleClick}>Yes</Button>
                         </ButtonGroup>
                     </PopoverFooter>
                 </PopoverContent>

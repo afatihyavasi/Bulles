@@ -34,24 +34,23 @@ const DeleteCurrentChannel = () => {
                 placement="right"
                 closeOnBlur={false}
             >
-                <PopoverTrigger>
-                    <Tooltip label={'Delete channel'}>
-                        <IconButton aria-label={'Delete channel'}
-                                    size={'xs'}
-                                    icon={<DeleteIcon/>}
-                                    onClick={onOpen}
-                        />
-                    </Tooltip>
 
+                <PopoverTrigger>
+                    <IconButton aria-label={'Delete channel'}
+                                size={'xs'}
+                                icon={<DeleteIcon/>}
+                                onClick={onOpen}
+                    />
                 </PopoverTrigger>
+
                 <PopoverContent>
                     <PopoverHeader fontWeight="semibold">Confirmation</PopoverHeader>
                     <PopoverArrow/>
                     <PopoverCloseButton/>
                     <PopoverBody display={'flex'}>
                         Are you sure delete
-                        <Text fontWeight="semibold" mx={'3px'}>
-                            {currentChannel.channelName}
+                        <Text fontWeight="semibold">
+                            {`\u00A0${currentChannel.channelName}\u00A0`}
                         </Text>
                         channel?
                     </PopoverBody>

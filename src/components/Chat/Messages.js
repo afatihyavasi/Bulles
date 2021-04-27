@@ -47,9 +47,9 @@ const Messages = ({currentChannel}) => {
         <div style={{overflow: 'auto', width: '100%'}}>
             {channelMessages && channelMessages.map(({key, value}) => {
                 return (
-                    <>
+                    <div key={key}>
                         {/*// message Author and timestamp*/}
-                        <Box my={'5px'} key={key}>
+                        <Box my={'5px'} >
                             <Flex align={'center'}>
                                 <Tag colorScheme={value.user.color} mx={'5px'}>
                                     <Avatar bg={'gray.600'} src={findUserAvatar(value.user.name)} size={'2xs'}
@@ -75,7 +75,7 @@ const Messages = ({currentChannel}) => {
                             </Flex>
                             <Divider/>
                         </Box>
-                    </>
+                    </div>
                 )
             })}
             <div ref={lastMessageRef}></div>

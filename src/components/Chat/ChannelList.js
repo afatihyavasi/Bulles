@@ -17,7 +17,7 @@ const ChannelList = () => {
             setActiveChannel({key, ...value});
             setMounted(true)
         }
-    },)
+    },[])
 
     const setActiveChannel = (channel) => {
         dispatch(setCurrentChannel(channel));

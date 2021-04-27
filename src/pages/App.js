@@ -49,5 +49,4 @@ export default App;
 //TODO:Login olunca otomatik app routing i degistirmeye calis
 //TODO: Fallback , HomePage sayfalarini da tasarla
 //TODO: Env ayarlarini ayarlaa
-//TODO: User a profil resmi eklemeye calis
 //TODO: Firebase de email tempalte de bulles linkine href ver

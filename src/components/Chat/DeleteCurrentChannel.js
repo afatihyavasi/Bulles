@@ -1,7 +1,7 @@
 import {
     IconButton, PopoverHeader, Popover, PopoverArrow, PopoverFooter,
     PopoverContent, PopoverCloseButton, PopoverBody, ButtonGroup,
-    Button, Text, useDisclosure, PopoverTrigger, Tooltip
+    Button, Text, useDisclosure, PopoverTrigger, useToast
 } from "@chakra-ui/react";
 import {DeleteIcon} from "@chakra-ui/icons";
 import {useFirebase} from "react-redux-firebase";
@@ -12,16 +12,28 @@ import {setCurrentChannel} from "../../store/actions/channel";
 const DeleteCurrentChannel = () => {
 
     const {onOpen, onClose, isOpen} = useDisclosure();
+    const toast = useToast()
     const dispatch = useDispatch();
     const firebase = useFirebase();
-    const channels = useSelector(state => state.firebase.ordered.channels);
     const currentChannel = useSelector(state => state.channelReducer.currentChannel);
-
+    const profile = useSelector(state => state.firebase.profile)
 
     const handleClick = () => {
         onClose(true);
-        firebase.remove(`channels/${currentChannel.key}`)
-            .finally(dispatch(setCurrentChannel(null)));
+        if (currentChannel.createdBy.name === profile.name){
+            firebase.remove(`channels/${currentChannel.key}`)
+                .finally(dispatch(setCurrentChannel(null)));
+        }else{
+            toast({
+                title: "Oopss !",
+                description: "You must be creator this channel",
+                status: "warning",
+                duration: 1000,
+                position: 'top',
+                isClosable: true,
+            })
+        }
+
     }
 
 

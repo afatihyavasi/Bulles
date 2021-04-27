@@ -1,4 +1,3 @@
-
 import {Flex} from '@chakra-ui/react'
 import NewMessageInput from "./NewMessageInput";
 import CurrentChannelInfoBar from "./CurrentChannelInfoBar";
@@ -21,6 +20,7 @@ const ChatArea = ({currentChannel}) => {
 
             {/*Create new message*/}
             <NewMessageInput currentChannel={currentChannel}/>
+
         </Flex>
     );
 };

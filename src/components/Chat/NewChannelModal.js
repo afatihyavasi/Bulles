@@ -14,7 +14,7 @@ import {useForm} from "react-hook-form";
 import {useFirebase} from "react-redux-firebase";
 import {useSelector} from "react-redux";
 
-const NewChannelModal = () => {
+const NewChannelModal = ({mobile}) => {
     const {isOpen, onOpen, onClose} = useDisclosure();
     const initialRef = useRef();
     const firebase = useFirebase();
@@ -40,7 +40,7 @@ const NewChannelModal = () => {
     return (
         <>
             <Tooltip label={'Create new channel'} aria-label='a tooltip'>
-                <Button rightIcon={<AddIcon/>} size={'xs'} onClick={onOpen}>New Channel</Button>
+                <Button bg={'none'} w='100%' rightIcon={<AddIcon/>} size={mobile ? 'sm' : 'xs'} onClick={onOpen}>New Channel</Button>
             </Tooltip>
             <Modal
                 initialFocusRef={initialRef}

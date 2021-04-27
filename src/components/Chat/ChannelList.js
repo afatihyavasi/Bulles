@@ -4,7 +4,7 @@ import {useFirebaseConnect, isEmpty, isLoaded} from "react-redux-firebase";
 import {setCurrentChannel} from "../../store/actions/channel";
 import {useState, useEffect} from "react";
 
-const ChannelList = () => {
+const ChannelList = ({mobile}) => {
     useFirebaseConnect([{path: "channels"}]);
     const dispatch = useDispatch();
     const channels = useSelector(state => state.firebase.ordered.channels);
@@ -27,12 +27,12 @@ const ChannelList = () => {
     if (isEmpty(channels)) return <Text>There is nothing here 😢</Text>
 
     return (
-        <Flex direction="column" align='center' mt={'250px'}>
+        <Flex direction="column" align='center' >
             {
                 channels.map(({key, value}) => {
                     return (
                         <Container w={'100%'} my={'10px'} key={key}>
-                            <Button w={'100%'} name={value?.channelName}
+                            <Button w={'100%'} size={mobile && 'sm'} name={value?.channelName}
                                     isActive={currentChannel?.key === key}
                                     _focus={{border: 'none'}}
                                     onClick={() => setActiveChannel({key, ...value})}

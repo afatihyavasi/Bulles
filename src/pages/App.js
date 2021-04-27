@@ -1,8 +1,11 @@
-import {Box, Stack, Flex, Text, useColorModeValue} from '@chakra-ui/react';
+import {Box, Divider, Flex, useColorModeValue} from '@chakra-ui/react';
 import SidePanel from "../components/Chat/SidePanel";
 import ChatArea from "../components/Chat/ChatArea";
 import {useSelector} from "react-redux";
-import ChatNav from "../components/Chat/ChatNav";
+import ChatNav from "../components/Chat/Web/ChatNav";
+
+import ChatNavMobile from "../components/Chat/Mobile/ChatNavMobile";
+import CurrentChannelInfoBar from "../components/Chat/CurrentChannelInfoBar";
 
 function App() {
     const currentChannel = useSelector(state => state.channelReducer.currentChannel);
@@ -23,17 +26,10 @@ function App() {
 
             {/*Mobile*/}
             <Box display={['block', 'none']}>
-                <Flex>
-                    < Stack h='100vh' bg={'blue.500'} w='30%'>
-                        < Text>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.Excepturi, magnam.
-                        </Text>
-                    </Stack>
-                    <Stack h='100vh' bg='red.500' w='70%'>
-                        <Text>
-                            Lorem ipsum dolor sit amet.
-                        </Text>
-                    </Stack>
+                <Flex direction={'column'}>
+                    <ChatNavMobile/>
+                    <Divider/>
+                    {currentChannel && <ChatArea currentChannel={currentChannel}/>}
                 </Flex>
             </Box>
 

@@ -43,7 +43,7 @@ const DeleteCurrentChannel = () => {
                 returnFocusOnClose={false}
                 isOpen={isOpen}
                 onClose={onClose}
-                placement="right"
+                placement="bottom"
                 closeOnBlur={false}
             >
 

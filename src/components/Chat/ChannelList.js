@@ -1,4 +1,4 @@
-import {Flex, Center, Spinner, Text, Button, Container} from "@chakra-ui/react";
+import {Flex, Center, Spinner, Text, Button, MenuItem} from "@chakra-ui/react";
 import {useSelector, useDispatch} from "react-redux";
 import {useFirebaseConnect, isEmpty, isLoaded} from "react-redux-firebase";
 import {setCurrentChannel} from "../../store/actions/channel";
@@ -31,15 +31,26 @@ const ChannelList = ({mobile}) => {
             {
                 channels.map(({key, value}) => {
                     return (
-                            <Button key={key}  w={'80%'} size={mobile && 'sm'} name={value?.channelName}
-                                    isActive={currentChannel?.key === key}
-                                    _focus={{border: 'none'}}
-                                    my={'10px'}
-                                    onClick={() => setActiveChannel({key, ...value})}
+                        mobile
+                            ? <MenuItem key={key} w={'80%'}>
+                                <Button  name={value?.channelName} w={'100%'}
+                                         isActive={currentChannel?.key === key}
+                                         _focus={{border: 'none'}}
+                                         my={'10px'}
+                                         onClick={() => setActiveChannel({key, ...value})}
+                                >
+                                    {value.channelName}
+                                </Button>
+                            </MenuItem>
+
+                            : <Button key={key} w={'80%'}  name={value?.channelName}
+                                      isActive={currentChannel?.key === key}
+                                      _focus={{border: 'none'}}
+                                      my={'10px'}
+                                      onClick={() => setActiveChannel({key, ...value})}
                             >
                                 {value.channelName}
                             </Button>
-
                     )
                 })
             }

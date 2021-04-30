@@ -1,8 +1,10 @@
+import {Center, Spinner} from "@chakra-ui/react";
+
 const Fallback = () => {
     return (
-        <div>
-            Loading....
-        </div>
+        <Center w={'100vw'} h={'100vh'}>
+            <Spinner/>
+        </Center>
     );
 };
 

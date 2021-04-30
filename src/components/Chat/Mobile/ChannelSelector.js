@@ -1,4 +1,4 @@
-import {Menu, MenuButton, MenuList, MenuItem, MenuDivider} from "@chakra-ui/react";
+import {Menu, MenuButton, MenuList, MenuItem, MenuDivider, MenuGroup} from "@chakra-ui/react";
 import {ChevronDownIcon} from "@chakra-ui/icons";
 import NewChannelModal from "../NewChannelModal";
 import ChannelList from "../ChannelList";
@@ -21,9 +21,9 @@ const ChannelSelector = () => {
                         <NewChannelModal mobile/>
                     </MenuItem>
                     <MenuDivider/>
-                    {/*<MenuItem w={'100%'}>*/}
-                        <ChannelList mobile/>
-                    {/*</MenuItem>*/}
+
+                    <ChannelList mobile/>
+
                 </MenuList>
             </Menu>
         </>

@@ -41,9 +41,9 @@ function App() {
 }
 export default App;
 
-//TODO:Message Input sayfasini duzenle
-//TODO: Fallback , HomePage , sayfalarini da tasarla
-//TODO:Login olunca otomatik app routing i degistirmeye calis
+//TODO: Message Input sayfasini duzenle
+//TODO: HomePage , sayfalarini da tasarla
+//TODO: Login olunca otomatik app routing i degistirmeye calis
 //TODO: Singup ve login sayfalarinin ustundeki beyaz boslugu temizle
 //TODO: Env ayarlarini ayarlaa
 //TODO: Kullanilmayan elemanlari temizle, errorlari kaldir.

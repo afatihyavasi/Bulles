@@ -8,9 +8,7 @@ import {useFirebase} from "react-redux-firebase";
 import {useDispatch, useSelector} from "react-redux";
 import {setCurrentChannel} from "../../store/actions/channel";
 
-
 const DeleteCurrentChannel = () => {
-
     const {onOpen, onClose, isOpen} = useDisclosure();
     const toast = useToast()
     const dispatch = useDispatch();
@@ -20,22 +18,20 @@ const DeleteCurrentChannel = () => {
 
     const handleClick = () => {
         onClose(true);
-        if (currentChannel.createdBy.name === profile.name){
+        if (currentChannel.createdBy.name === profile.name) {
             firebase.remove(`channels/${currentChannel.key}`)
                 .finally(dispatch(setCurrentChannel(null)));
-        }else{
+        } else {
             toast({
                 title: "Oopss !",
                 description: "You must be creator this channel",
                 status: "warning",
-                duration: 1000,
+                duration: 1500,
                 position: 'top',
                 isClosable: true,
             })
         }
-
     }
-
 
     return (
         <>
@@ -46,10 +42,9 @@ const DeleteCurrentChannel = () => {
                 placement="bottom"
                 closeOnBlur={false}
             >
-
                 <PopoverTrigger>
                     <IconButton aria-label={'Delete channel'}
-                                size={'xs'}
+                                size={'sm'}
                                 icon={<DeleteIcon/>}
                                 onClick={onOpen}
                     />

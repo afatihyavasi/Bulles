@@ -25,11 +25,9 @@ const SignUp = () => {
 
     const usersData = useSelector(state => state.firebase.ordered.users);
 
-
     const onSubmit = ({username, email, password}) => {
         setSubmit(true);
         setFbErrors('');
-
         firebase.createUser(
             {
                 email,
@@ -38,11 +36,9 @@ const SignUp = () => {
             {
                 name: username,
                 avatar: username.charAt(0),
-                color:pickRandomColor(usersData)
+                color: pickRandomColor(usersData)
             },
-        ).then(user => {
-
-        }).catch((err) => {
+        ).catch((err) => {
             setFbErrors(err.message);
         }).finally((() => setSubmit(false)));
     }

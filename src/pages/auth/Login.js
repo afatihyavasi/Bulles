@@ -32,7 +32,6 @@ const Login = () => {
                 setFbErrors(err.message);
             })
             .finally((() => setSubmit(false)));
-
     };
 
     const onResetFormSubmit = (event) => {
@@ -56,7 +55,6 @@ const Login = () => {
                 })
             })
             .finally(setResetEmail(''));
-
     }
 
     const handleClick = () => setShow(!show);
@@ -126,13 +124,11 @@ const Login = () => {
                                                         </FormControl>
                                                     </ModalBody>
 
-
                                                     <Flex justify={'center'} my={'20px'}>
                                                         <Button colorScheme="yellow" mr={3} type='submit'>
                                                             Reset Password
                                                         </Button>
                                                     </Flex>
-
                                                 </form>
                                             </ModalContent>
                                         </Modal>
@@ -152,7 +148,6 @@ const Login = () => {
                                         </InputRightElement>
                                     </InputGroup>
                                 </FormControl>
-
 
                                 <Stack>
                                     <Button
@@ -198,7 +193,6 @@ const Login = () => {
             </Flex>
         </>
     )
-
 };
 
 export default Login;

@@ -7,46 +7,40 @@ import {useSelector} from "react-redux";
 
 const CurrentChannelInfoBar = ({currentChannel}) => {
     const users = useSelector(state => state.firebase.ordered.users);
-
     const findUserData = (userName) => {
-        const userData = users?.find((user)=>{
-            if(user.value.name === userName) return user.value.avatar;
+        const userData = users?.find((user) => {
+            if (user.value.name === userName) return user.value.avatar;
         })
-
         return userData?.value;
     }
     return (
         <>
-            <Flex direction={'column'}  w={'100%'} bg={useColorModeValue('gray.200', 'purple.500')} my={'0px'}>
-                <Accordion allowToggle>
+            <Flex direction={'column'} w={'100%'}  bg={useColorModeValue('gray.200', 'purple.500')} my={'0px'}>
+                <Accordion allowToggle >
                     <AccordionItem>
-
-                        <AccordionButton >
-                            <Box flex="1" textAlign="center" >
+                        <AccordionButton h={'5vh'}>
+                            <Box flex="1" textAlign="center">
                                 {currentChannel.channelName}
                             </Box>
                             <AccordionIcon/>
                         </AccordionButton>
                         <Divider/>
-                        <AccordionPanel pb={4}>
-                            <Flex justify={'space-between'} my={'10px'}>
+                        <AccordionPanel  pb={4} bg={useColorModeValue('gray.100', 'purple.400')}>
+                            <Flex justify={'space-between'} align='center' my={'10px'}>
                                 <Text fontWeight={'bold'}>{`Created by:\u00A0`}
-                                    <Tag colorScheme={findUserData(currentChannel.createdBy.name).color} mx={'5px'}>
-                                        <Avatar bg={'gray.600'} src={findUserData(currentChannel.createdBy.name).avatar} size={'2xs'}
+                                    <Tag colorScheme={findUserData(currentChannel.createdBy.name)?.color} mx={'5px'}>
+                                        <Avatar bg={'gray.600'}
+                                                src={findUserData(currentChannel.createdBy.name)?.avatar} size={'2xs'}
                                                 ml={'2px'}/>
                                         <TagLabel ml={'5px'}>{currentChannel.createdBy.name}</TagLabel>
                                     </Tag>
                                 </Text>
-
                                 <DeleteCurrentChannel currentChannel={currentChannel}/>
                             </Flex>
-
                             <Text fontWeight={'semi-bold'}>{currentChannel.description}</Text>
-
                         </AccordionPanel>
                     </AccordionItem>
                 </Accordion>
-
             </Flex>
         </>
     );

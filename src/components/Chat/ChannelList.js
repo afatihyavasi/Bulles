@@ -17,7 +17,7 @@ const ChannelList = ({mobile}) => {
             setActiveChannel({key, ...value});
             setMounted(true)
         }
-    },[])
+    }, [])
 
     const setActiveChannel = (channel) => {
         dispatch(setCurrentChannel(channel));
@@ -27,19 +27,19 @@ const ChannelList = ({mobile}) => {
     if (isEmpty(channels)) return <Text>There is nothing here 😢</Text>
 
     return (
-        <Flex direction="column" align='center' >
+        <Flex direction="column" align='center'>
             {
                 channels.map(({key, value}) => {
                     return (
-                        <Container w={'100%'} my={'10px'} key={key}>
-                            <Button w={'100%'} size={mobile && 'sm'} name={value?.channelName}
+                            <Button key={key}  w={'80%'} size={mobile && 'sm'} name={value?.channelName}
                                     isActive={currentChannel?.key === key}
                                     _focus={{border: 'none'}}
+                                    my={'10px'}
                                     onClick={() => setActiveChannel({key, ...value})}
                             >
                                 {value.channelName}
                             </Button>
-                        </Container>
+
                     )
                 })
             }

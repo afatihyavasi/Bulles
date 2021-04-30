@@ -7,6 +7,7 @@ const AvatarChanger = () => {
     const fileInputRef = useRef();
     const firebase = useFirebase();
     const profile = useSelector(state => state.firebase.profile);
+
     const uploadMedia = (event) => {
         const file = event.target.files[0];
         if (file) {

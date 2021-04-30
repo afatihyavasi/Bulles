@@ -16,18 +16,16 @@ const ChannelSelector = () => {
                 >
                     Channels <ChevronDownIcon/>
                 </MenuButton>
-                <MenuList>
+                <MenuList w={'100%'}>
                     <MenuItem>
                         <NewChannelModal mobile/>
                     </MenuItem>
                     <MenuDivider/>
-                    <MenuItem>
+                    {/*<MenuItem w={'100%'}>*/}
                         <ChannelList mobile/>
-                    </MenuItem>
-
+                    {/*</MenuItem>*/}
                 </MenuList>
             </Menu>
-
         </>
     );
 };

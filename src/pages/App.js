@@ -3,9 +3,8 @@ import SidePanel from "../components/Chat/SidePanel";
 import ChatArea from "../components/Chat/ChatArea";
 import {useSelector} from "react-redux";
 import ChatNav from "../components/Chat/Web/ChatNav";
-
 import ChatNavMobile from "../components/Chat/Mobile/ChatNavMobile";
-import CurrentChannelInfoBar from "../components/Chat/CurrentChannelInfoBar";
+import WithoutChannel from "../components/Chat/WithoutChannel";
 
 function App() {
     const currentChannel = useSelector(state => state.channelReducer.currentChannel);
@@ -19,7 +18,10 @@ function App() {
                     </Box>
                     <Box h='100vh' w='75%'>
                         <ChatNav/>
-                        {currentChannel && <ChatArea currentChannel={currentChannel}/>}
+                        {currentChannel
+                            ? <ChatArea currentChannel={currentChannel}/>
+                            : <WithoutChannel/>
+                        }
                     </Box>
                 </Flex>
             </Box>
@@ -28,21 +30,23 @@ function App() {
             <Box display={['block', 'none']}>
                 <Flex direction={'column'}>
                     <ChatNavMobile/>
-                    <Divider/>
-                    {currentChannel && <ChatArea currentChannel={currentChannel}/>}
+                    {currentChannel
+                        ? <ChatArea currentChannel={currentChannel} mobile/>
+                        : <WithoutChannel/>
+                    }
                 </Flex>
             </Box>
-
         </>
     )
-
 }
-
 export default App;
 
-
-
+//TODO:Message Input sayfasini duzenle
+//TODO: Fallback , HomePage , sayfalarini da tasarla
 //TODO:Login olunca otomatik app routing i degistirmeye calis
-//TODO: Fallback , HomePage sayfalarini da tasarla
+//TODO: Singup ve login sayfalarinin ustundeki beyaz boslugu temizle
 //TODO: Env ayarlarini ayarlaa
+//TODO: Kullanilmayan elemanlari temizle, errorlari kaldir.
+//TODO: PWA ayarla
+//TODO: Test et
 //TODO: Firebase de email tempalte de bulles linkine href ver

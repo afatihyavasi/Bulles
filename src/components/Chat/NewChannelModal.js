@@ -40,7 +40,8 @@ const NewChannelModal = ({mobile}) => {
     return (
         <>
             <Tooltip label={'Create new channel'} aria-label='a tooltip'>
-                <Button bg={'none'} w='100%' rightIcon={<AddIcon/>} size={mobile ? 'sm' : 'xs'} onClick={onOpen}>New Channel</Button>
+                <Button bg={'none'} w='100%' rightIcon={<AddIcon/>} size={mobile ? 'sm' : 'xs'} onClick={onOpen}>New
+                    Channel</Button>
             </Tooltip>
             <Modal
                 initialFocusRef={initialRef}

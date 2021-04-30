@@ -1,4 +1,4 @@
-import {Flex, IconButton, Input} from "@chakra-ui/react";
+import {Flex, IconButton, Input, Box} from "@chakra-ui/react";
 import {AddIcon} from "@chakra-ui/icons";
 import {useState, useRef} from "react";
 import {useFirebase} from "react-redux-firebase";
@@ -64,15 +64,19 @@ const NewMessageInput = ({currentChannel}) => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <Flex h='8%' w={'100%'} ml={'-10px'} >
-                    <IconButton icon={<AddIcon/>}  onClick={() => fileInputRef.current.click()} aria-label={'add image'}
-                                mx={'20px'}/>
-                    <input type='file' style={{display: 'none'}} ref={fileInputRef} onChange={uploadMedia}/>
-                    <Input onChange={(e) => setContent(e.target.value)} value={content}
+            <Flex h={'5vh'} align={'center'} >
+
+                <IconButton icon={<AddIcon/>} onClick={() => fileInputRef.current.click()}
+                            aria-label={'add image'}
+                            ml={'5px'} mr={'10px'}
+                            />
+                <input type='file' style={{display: 'none'}} ref={fileInputRef} onChange={uploadMedia}/>
+                <form onSubmit={handleSubmit}>
+                    <Input mr={'5px'}
+                           onChange={(e) => setContent(e.target.value)} value={content}
                            placeholder={`Message #${currentChannel.channelName} `}/>
-                </Flex>
-            </form>
+                </form>
+            </Flex>
         </>
     );
 };

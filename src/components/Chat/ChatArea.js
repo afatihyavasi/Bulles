@@ -1,25 +1,27 @@
-import {Flex} from '@chakra-ui/react'
+import {Box, Flex} from '@chakra-ui/react'
 import NewMessageInput from "./NewMessageInput";
 import CurrentChannelInfoBar from "./CurrentChannelInfoBar";
 import Messages from "./Messages";
 
-
-const ChatArea = ({currentChannel}) => {
-
-
+const ChatArea = ({currentChannel, mobile}) => {
     return (
-        <Flex direction={'column'} w={'100%'} h={'92vh'}>
+        <Flex direction={'column'} w={'100%'} overflow={'hidden'} h={mobile ? '94vh' : '92vh'}>
 
             {/*Channel name and desc*/}
-            <CurrentChannelInfoBar currentChannel={currentChannel}/>
+            <Flex>
+                <CurrentChannelInfoBar currentChannel={currentChannel}/>
+            </Flex>
+
 
             {/*Messages section*/}
-            <Flex h={'84%'}>
+            <Flex h={mobile ? '79vh' : '82vh'}>
                 <Messages currentChannel={currentChannel}/>
             </Flex>
 
             {/*Create new message*/}
+
             <NewMessageInput currentChannel={currentChannel}/>
+
 
         </Flex>
     );

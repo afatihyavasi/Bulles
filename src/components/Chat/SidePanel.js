@@ -1,25 +1,16 @@
-import {
-    Flex,
-    Text,
-    Stack,
-    useColorModeValue
-} from "@chakra-ui/react";
+import {Flex, Stack, Image} from "@chakra-ui/react";
 import NewChannelModal from "./NewChannelModal";
 import ChannelList from "./ChannelList";
-
+import logo from '../../assets/img/bullesLogoAlt.svg'
 const SidePanel = () => {
 
     return (
         <Flex direction="column" align='center'>
-            <Stack>
 
-            </Stack>
 
             {/*App Name or logo*/}
-            <Stack spacing={4}>
-                <Text p={'50px'} fontSize={'xl'} color={useColorModeValue('purple.500', 'purple.100')}>
-                    Bulles
-                </Text>
+            <Stack  my='20px' spacing={4} boxSize={'50%'}>
+                <Image src={logo}/>
             </Stack>
 
             {/*New Channel Modal */}

@@ -17,8 +17,6 @@ function App() {
                     <Box h='100vh' w={'12%'} display={['none','none','block']} bg={useColorModeValue('gray.50', 'gray.500')}>
                         <SidePanel/>
                     </Box>
-
-
                     <Box h='100vh' w={['0','100%','88%']}>
                         <ChatNav/>
                         {currentChannel

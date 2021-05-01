@@ -1,16 +1,22 @@
-import {useDisclosure,Button,Drawer,DrawerOverlay,DrawerContent
-,DrawerCloseButton,DrawerBody} from "@chakra-ui/react";
+import {
+    useDisclosure, Drawer, DrawerOverlay, DrawerContent
+    , DrawerCloseButton, DrawerBody, DrawerFooter, Image, Tooltip
+} from "@chakra-ui/react";
 import {useRef} from "react";
 import SidePanel from "./SidePanel";
+import logo from '../../assets/img/bullesLogoAlt.svg'
+import DarkModeToggle from "../Nav/DarkModeToogle";
 
 const DraverMenu = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = useRef()
     return (
         <>
-            <Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
-                Open
-            </Button>
+
+            <Tooltip label={'Open a menu'}>
+                <Image ref={btnRef} onClick={onOpen} src={logo} cursor={'pointer'} boxSize="60px"/>
+            </Tooltip>
+
             <Drawer
                 isOpen={isOpen}
                 placement="left"
@@ -23,6 +29,9 @@ const DraverMenu = () => {
                         <DrawerBody>
                             <SidePanel/>
                         </DrawerBody>
+                        <DrawerFooter mx={'auto'}>
+                            <DarkModeToggle/>
+                        </DrawerFooter>
                     </DrawerContent>
                 </DrawerOverlay>
             </Drawer>

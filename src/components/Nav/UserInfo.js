@@ -8,11 +8,11 @@ import {
     MenuButton,
     MenuList,
     MenuItem,
-    MenuDivider, Link, TagLabel, Tag,
+    MenuDivider, Link, TagLabel, Tag
 } from "@chakra-ui/react";
 import LogOut from "./LogOut";
 import AvatarChanger from "./AvatarChanger";
-
+import logo from '../../assets/img/bullesLogoAlt.svg';
 
 const UserInfo = ({mobile}) => {
         const profile = useSelector(state => state.firebase.profile);

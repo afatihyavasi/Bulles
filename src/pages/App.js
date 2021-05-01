@@ -1,10 +1,11 @@
-import {Box, Divider, Flex, useColorModeValue} from '@chakra-ui/react';
+import {Box,  Flex, useColorModeValue} from '@chakra-ui/react';
 import SidePanel from "../components/Chat/SidePanel";
 import ChatArea from "../components/Chat/ChatArea";
 import {useSelector} from "react-redux";
 import ChatNav from "../components/Chat/Web/ChatNav";
 import ChatNavMobile from "../components/Chat/Mobile/ChatNavMobile";
 import WithoutChannel from "../components/Chat/WithoutChannel";
+import DrawerMenu from "../components/Chat/DrawerMenu";
 
 function App() {
     const currentChannel = useSelector(state => state.channelReducer.currentChannel);
@@ -13,10 +14,12 @@ function App() {
             {/*Web*/}
             <Box display={['none', 'block']}>
                 <Flex>
-                    <Box h='100vh' w='25%' bg={useColorModeValue('gray.50', 'gray.500')}>
+                    <Box h='100vh' w={'12%'} display={['none','none','block']} bg={useColorModeValue('gray.50', 'gray.500')}>
                         <SidePanel/>
                     </Box>
-                    <Box h='100vh' w='75%'>
+
+
+                    <Box h='100vh' w={['0','100%','88%']}>
                         <ChatNav/>
                         {currentChannel
                             ? <ChatArea currentChannel={currentChannel}/>
@@ -46,6 +49,7 @@ export default App;
 //TODO: Login olunca otomatik app routing i degistirmeye calis
 //TODO: Singup ve login sayfalarinin ustundeki beyaz boslugu temizle
 //TODO: Env ayarlarini ayarlaa
+//TODO: Singup olunca renk atama fonksiyonu yanlis aclisiypr
 //TODO: Kullanilmayan elemanlari temizle, errorlari kaldir.
 //TODO: PWA ayarla
 //TODO: Test et

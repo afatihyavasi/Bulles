@@ -8,15 +8,14 @@ import {
     MenuButton,
     MenuList,
     MenuItem,
-    MenuDivider, Link, TagLabel, Tag
+    MenuDivider, Link, TagLabel, Tag,
 } from "@chakra-ui/react";
 import LogOut from "./LogOut";
 import AvatarChanger from "./AvatarChanger";
 
+
 const UserInfo = ({mobile}) => {
-
         const profile = useSelector(state => state.firebase.profile);
-
         return (
             <>
                 {mobile
@@ -39,7 +38,6 @@ const UserInfo = ({mobile}) => {
                                         Contact
                                     </Link>
                                 </MenuItem>
-
                                 <MenuDivider/>
                                 <MenuItem>
                                     <LogOut mobile/>
@@ -48,10 +46,22 @@ const UserInfo = ({mobile}) => {
                         </Menu>
                     </>
                     : <>
-                        <Flex alignItems={'center'} bg={'red-500'} border="1px" borderColor="gray.200" rounded={'lg'}>
-                            <Avatar size='xs' src={profile.avatar} bg={'gray.600'} mx={'15px'} my={'7px'}/>
-                            <Text mr={'20px'} fontWeight={'bold'}> {profile.name}</Text>
-                        </Flex>
+                        <Menu>
+                            <MenuButton>
+                                <Flex alignItems={'center'} bg={'red-500'} border="1px" borderColor="gray.200"
+                                      rounded={'lg'}>
+                                    <Avatar size='xs' src={profile.avatar} bg={'gray.600'} mx={'15px'} my={'7px'}/>
+                                    <Text mr={'20px'} fontWeight={'bold'}> {profile.name}</Text>
+                                </Flex>
+                            </MenuButton>
+
+                            <MenuList>
+                                <MenuItem ml={'10px'}>
+                                    <AvatarChanger/>
+                                </MenuItem>
+                            </MenuList>
+                        </Menu>
+
                         <Center mx={'10px'}>
                             <LogOut/>
                         </Center>
@@ -59,6 +69,7 @@ const UserInfo = ({mobile}) => {
                 }
             </>
         );
-    };
+    }
+;
 
 export default UserInfo;

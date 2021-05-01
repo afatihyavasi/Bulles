@@ -28,7 +28,7 @@ const AvatarChanger = () => {
 
     return (
         <>
-            <Text onClick={() => fileInputRef.current.click()}>
+            <Text onClick={() => fileInputRef.current.click()} textAlign={'center'}>
                 Change Avatar
             </Text>
             <input type={'file'} ref={fileInputRef} onChange={uploadMedia} style={{display: 'none'}}/>

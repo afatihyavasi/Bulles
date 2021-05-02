@@ -4,17 +4,23 @@ import {
 } from "@chakra-ui/react";
 import {useRef} from "react";
 import SidePanel from "./SidePanel";
-import logo from '../../assets/img/bullesLogoAlt.svg'
 import DarkModeToggle from "../Nav/DarkModeToogle";
+import logo from '../../assets/img/bullesLogoAlt.svg';
+
+
 
 const DraverMenu = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure()
-    const btnRef = useRef()
+    const {isOpen, onOpen, onClose} = useDisclosure()
+    const btnRef = useRef();
+
+
     return (
         <>
 
             <Tooltip label={'Open a menu'}>
-                <Image ref={btnRef} onClick={onOpen} src={logo} cursor={'pointer'} boxSize="60px"/>
+                <Image ref={btnRef} onClick={onOpen}
+                       src={logo}
+                       cursor={'pointer'} boxSize="60px"/>
             </Tooltip>
 
             <Drawer
@@ -25,7 +31,7 @@ const DraverMenu = () => {
             >
                 <DrawerOverlay>
                     <DrawerContent>
-                        <DrawerCloseButton />
+                        <DrawerCloseButton/>
                         <DrawerBody>
                             <SidePanel/>
                         </DrawerBody>

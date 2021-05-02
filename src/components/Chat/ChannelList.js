@@ -1,4 +1,4 @@
-import {Flex, Center, Spinner, Text, Button, MenuItem} from "@chakra-ui/react";
+import {Flex, Center, Spinner, Text, Button, MenuItem, useColorModeValue} from "@chakra-ui/react";
 import {useSelector, useDispatch} from "react-redux";
 import {useFirebaseConnect, isEmpty, isLoaded} from "react-redux-firebase";
 import {setCurrentChannel} from "../../store/actions/channel";
@@ -10,7 +10,7 @@ const ChannelList = ({mobile}) => {
     const channels = useSelector(state => state.firebase.ordered.channels);
     const currentChannel = useSelector(state => state.channelReducer.currentChannel);
     const [mounted, setMounted] = useState(false);
-
+    const borderColor = useColorModeValue('gray.200','gray.500');
     useEffect(() => {
         if (!mounted && !isEmpty(channels)) {
             const {key, value} = channels[0];
@@ -26,29 +26,33 @@ const ChannelList = ({mobile}) => {
     if (!isLoaded(channels)) return (<Center w={'100%'}><Spinner/></Center>)
     if (isEmpty(channels)) return <Text>There is nothing here 😢</Text>
 
+
     return (
-        <Flex direction="column" align='center'>
+        <Flex direction="column" align='center' w={'100%'}>
             {
                 channels.map(({key, value}) => {
                     return (
                         mobile
-                            ? <MenuItem key={key} w={'80%'}>
-                                <Button  name={value?.channelName} w={'100%'}
-                                         isActive={currentChannel?.key === key}
-                                         _focus={{border: 'none'}}
-                                         my={'10px'}
-                                         onClick={() => setActiveChannel({key, ...value})}
-                                >
+                            ? <MenuItem key={key} w={'80%'} py={'5px'}>
+                                <Button name={value?.channelName} w={'100%'}
+                                        isActive={currentChannel?.key === key}
+                                        _focus={{border: 'none'}}
+                                        isTruncated
+                                        my={'5px'}
+                                        size={'xs'}
+                                        onClick={() => setActiveChannel({key, ...value})}>
                                     {value.channelName}
                                 </Button>
                             </MenuItem>
 
-                            : <Button key={key} w={'80%'}  name={value?.channelName}
+                            : <Button key={key} w={'100%'} h={'40px'} name={value?.channelName}
                                       isActive={currentChannel?.key === key}
                                       _focus={{border: 'none'}}
-                                      my={'10px'}
-                                      onClick={() => setActiveChannel({key, ...value})}
-                            >
+                                      isTruncated
+                                      border={'1px'} borderColor={borderColor}
+                                      rounded={'none'}
+                                      size={'xs'}
+                                      onClick={() => setActiveChannel({key, ...value})}>
                                 {value.channelName}
                             </Button>
                     )

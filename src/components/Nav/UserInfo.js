@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import LogOut from "./LogOut";
 import AvatarChanger from "./AvatarChanger";
-import logo from '../../assets/img/bullesLogoAlt.svg';
+
 
 const UserInfo = ({mobile}) => {
         const profile = useSelector(state => state.firebase.profile);
@@ -61,10 +61,6 @@ const UserInfo = ({mobile}) => {
                                 </MenuItem>
                             </MenuList>
                         </Menu>
-
-                        <Center mx={'10px'}>
-                            <LogOut/>
-                        </Center>
                     </>
                 }
             </>

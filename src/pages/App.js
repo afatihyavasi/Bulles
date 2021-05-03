@@ -5,7 +5,6 @@ import {useSelector} from "react-redux";
 import ChatNav from "../components/Chat/Web/ChatNav";
 import ChatNavMobile from "../components/Chat/Mobile/ChatNavMobile";
 import WithoutChannel from "../components/Chat/WithoutChannel";
-import DrawerMenu from "../components/Chat/DrawerMenu";
 
 function App() {
     const currentChannel = useSelector(state => state.channelReducer.currentChannel);
@@ -14,11 +13,13 @@ function App() {
             {/*Web*/}
             <Box display={['none', 'block']}>
                 <Flex>
-                    <Box h='100vh' w={'12%'} display={['none','none','block']} bg={useColorModeValue('gray.50', 'gray.500')}>
+                    <Box h='100vh' w={'12%'}
+                         display={['none','none','block']}
+                         bg={useColorModeValue('gray.50', 'gray.500')}>
                         <SidePanel/>
                     </Box>
                     <Box h='100vh' w={['0','100%','88%']}>
-                        <ChatNav/>
+                        <ChatNav />
                         {currentChannel
                             ? <ChatArea currentChannel={currentChannel}/>
                             : <WithoutChannel/>

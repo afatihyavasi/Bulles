@@ -43,7 +43,7 @@ const NewChannelModal = ({mobile}) => {
                 {
                     mobile ? <Button bg={'none'} w='100%' rightIcon={<AddIcon/>} size={'xs'} > Create New Channel
                         </Button>
-                        : <IconButton aria-label={'New channel'} size='xs' mx='3px' colorScheme="purple" icon={<AddIcon/>} onClick={onOpen}/>
+                        : <IconButton aria-label={'New channel'} size='xs'  colorScheme="purple" icon={<AddIcon/>} onClick={onOpen}/>
 
                 }
 

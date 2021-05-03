@@ -7,12 +7,16 @@ const WithoutChannel = () => {
             <Flex width={'100%'} h={'90vh'}
                   flexDirection={'column'}
                   p={'25px'}
-                  justify='center' align={'center'}>
-                <Image src={image} boxSize="65%"
+                   align={'center'}>
+                <Image src={image} boxSize={["65%",'40%']}
                        alt={'Without channel image'}
+                       my={['20px','100px']}
                 />
-                <Text color={'purple.300'} mt={'20px'}
-                      fontWeight={'bold'}>Choose a channel and join a party</Text>
+                <Text color={'gray.700'} textAlign={'center'}
+                      px={'15px'} py='5px' rounded={'lg'}
+                      bg={'purple.50'}
+                      fontSize={'sm'}
+                      fontWeight={'bold'}>Choose a channel and join a party 🎉</Text>
 
             </Flex>
         </div>

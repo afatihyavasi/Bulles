@@ -60,16 +60,15 @@ const Login = () => {
     const handleClick = () => setShow(!show);
     return (
         <>
-            <Container px={10}>
-                <NavForAuth/>
-            </Container>
 
             <Flex
                 minH={'100vh'}
                 align={'center'}
-                justify={'center'}
                 flexDirection="column"
                 bg={useColorModeValue('gray.50', 'gray.800')}>
+                <Box w={'80%'} my={'50px'}>
+                    <NavForAuth/>
+                </Box>
 
                 <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
                     <Stack align={'center'}>

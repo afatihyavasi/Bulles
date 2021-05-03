@@ -1,4 +1,4 @@
-import {Box, Flex, Image, Text} from "@chakra-ui/react";
+import {Flex, Image, Text} from "@chakra-ui/react";
 import image from '../../assets/img/without-image.svg';
 
 const WithoutChannel = () => {
@@ -17,7 +17,6 @@ const WithoutChannel = () => {
                       bg={'purple.50'}
                       fontSize={'sm'}
                       fontWeight={'bold'}>Choose a channel and join a party 🎉</Text>
-
             </Flex>
         </div>
     );

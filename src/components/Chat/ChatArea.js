@@ -5,7 +5,7 @@ import Messages from "./Messages";
 
 const ChatArea = ({currentChannel, mobile}) => {
     return (
-        <Flex direction={'column'} w={'100%'} overflow={'hidden'} h={mobile ? '94vh' : '92vh'}>
+        <Flex direction={'column'} w={'100%'} overflow={'hidden'} h={mobile ? '94vh' : '92vh'} >
 
             {/*Channel name and desc*/}
             <Flex>
@@ -14,7 +14,7 @@ const ChatArea = ({currentChannel, mobile}) => {
 
 
             {/*Messages section*/}
-            <Flex h={mobile ? '79vh' : '82vh'}>
+            <Flex h={mobile ? '80vh' : '82vh'}>
                 <Messages currentChannel={currentChannel}/>
             </Flex>
 

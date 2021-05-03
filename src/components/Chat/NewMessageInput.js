@@ -64,19 +64,15 @@ const NewMessageInput = ({currentChannel}) => {
 
     return (
         <>
-            <Flex h={'5vh'} align={'center'} >
-
-                <IconButton icon={<AddIcon/>} onClick={() => fileInputRef.current.click()}
-                            aria-label={'add image'}
-                            ml={'5px'} mr={'10px'}
-                            />
-                <input type='file' style={{display: 'none'}} ref={fileInputRef} onChange={uploadMedia}/>
-                <form onSubmit={handleSubmit}>
-                    <Input mr={'5px'}
-                           onChange={(e) => setContent(e.target.value)} value={content}
-                           placeholder={`Message #${currentChannel.channelName} `}/>
-                </form>
-            </Flex>
+            <form onSubmit={handleSubmit}>
+                <Flex w={'100%'} h={'5vh'}>
+                    <IconButton icon={<AddIcon/>} onClick={() => fileInputRef.current.click()} aria-label={'add image'}
+                                mx={'10px'}/>
+                    <input type='file' style={{display: 'none'}} ref={fileInputRef} onChange={uploadMedia}/>
+                    <Input onChange={(e) => setContent(e.target.value)} value={content}
+                           mr={'10px'} placeholder={`Message #${currentChannel.channelName} `}/>
+                </Flex>
+            </form>
         </>
     );
 };

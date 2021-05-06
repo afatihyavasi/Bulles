@@ -13,8 +13,10 @@ Bulles is a simple chat application where you can chat via channels.
 - React JS
 - React Redux
 - React Redux Firebase
+- React Hook Form
 - Chakra-UI
 - Firebase
+- Moment.js
 <hr/>
 
 <p align="center" >  <img width="200" height="400"   src="https://raw.githubusercontent.com/afatihyavasi/Bulles/master/src/assets/img/mobileDarkMockup.png"/>

@@ -4,16 +4,15 @@
 <p align="center">  <img  src="https://raw.githubusercontent.com/afatihyavasi/Bulles/master/src/assets/img/responsiveScreens.png"/>
  </p>  
 
-> [Demo](https://bulles-afatihyavasi.web.app/app)
+
+## Overview
+Bulles is a simple chat application where you can chat via channels.
 
 **NOTE :** If you want to try without opening an account, you can log in with this account.
 | E-MAIL|Password  |
 |--|--|
 |test@test.com  | 123456 |
 
-
-## Overview
-Bulles is a simple chat application where you can chat via channels.
 
 ## Builts With
 - React JS

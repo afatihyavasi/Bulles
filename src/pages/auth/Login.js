@@ -165,7 +165,8 @@ const Login = () => {
                                               color={useColorModeValue('gray.600', 'gray.200')} fontSize='sm'>Don't
                                             have an account?{" "}
 
-                                            <Link as={_Link} to="/signup" color={'teal.400'} p='1.5' rounded={'sm'}
+                                            <Link as={_Link} to='/signup'
+                                             color={'teal.400'} p='1.5' rounded={'sm'}
                                                   _hover={
                                                       {
                                                           bg: 'teal.100',

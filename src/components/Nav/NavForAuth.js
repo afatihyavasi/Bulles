@@ -5,7 +5,7 @@ import BackToHome from "./BackToHome";
 const NavForAuth = () => {
     return (
         <Flex justifyContent={'space-around'} w={'100%'}>
-                <BackToHome/>
+                <BackToHome />
                 <DarkModeToggle/>
         </Flex>
     );

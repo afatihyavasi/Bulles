@@ -1,6 +1,6 @@
 import {
     Flex, Box, FormControl, FormLabel, Text,
-    Input, Stack, Button, Heading, Container,
+    Input, Stack, Button, Heading,
     useColorModeValue, Tooltip, InputGroup, InputRightElement, FormErrorMessage
 } from '@chakra-ui/react';
 import {useState} from 'react';
@@ -58,7 +58,7 @@ const SignUp = () => {
 
                 <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
                     <Stack align={'center'}>
-                        <Heading fontSize={'3xl'} color={'pink.400'}>Create your Bulles account 🙌</Heading>
+                        <Heading fontSize={'3xl'} color={'pink.400'} textAlign={'center'}>Create your Bulles account 🙌</Heading>
                     </Stack>
                     <Box
                         rounded={'lg'}

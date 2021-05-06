@@ -2,7 +2,9 @@ const colors = ["blackAlpha", "gray", "red", "orange", "yellow", "green", "teal"
 
 const pickRandomColor = (usersData) => {
     let randomColor = colors[Math.round(Math.random() * colors.length)];
+    if (!usersData) return randomColor;
     const truthySameColor = usersData.some(user => user.value.color === randomColor);
+    if (usersData.length === colors.length) return randomColor;
     if (truthySameColor) pickRandomColor(usersData);
     return randomColor;
 }

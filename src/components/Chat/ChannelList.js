@@ -23,8 +23,8 @@ const ChannelList = ({mobile}) => {
         dispatch(setCurrentChannel(channel));
     }
 
-    if (!isLoaded(channels)) return (<Center w={'100%'}><Spinner/></Center>)
-    if (isEmpty(channels)) return <Text>There is nothing here 😢</Text>
+    if (!isLoaded(channels)) return (<Center w={'100%'} my={'50px'}><Spinner/></Center>)
+    if (isEmpty(channels)) return <Text my={'50px'}>There is nothing here 😢</Text>
 
 
     return (

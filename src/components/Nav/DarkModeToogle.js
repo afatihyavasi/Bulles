@@ -6,7 +6,7 @@ const DarkModeToggle = () => {
     return (
         <Tooltip label={colorMode === "light" ? 'Dark mode' : 'Light mode'} aria-label='a tooltip'>
             <IconButton aria-label="Dark mode toogle" onClick={toggleColorMode}
-                        icon={colorMode === "light" ? <MoonIcon/> : <SunIcon/>}/>
+                        icon={colorMode === "light" ? <MoonIcon/> : <SunIcon/>} />
         </Tooltip>
     );
 };

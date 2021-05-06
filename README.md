@@ -4,7 +4,7 @@
 <p align="center">  <img  src="https://raw.githubusercontent.com/afatihyavasi/Bulles/master/src/assets/img/responsiveScreens.png"/>
  </p>  
 
-> [Demo](https://bulles-afatihyavasi.web.app/app)
+> [Demo](https://bulles-afatihyavasi.web.app/)
 
 ## Overview
 Bulles is a simple chat application where you can chat via channels.
@@ -28,7 +28,7 @@ To clone and run this application, you'll need Git and Node.js (which comes with
 
 
 ### Clone this repository
-```$ git clone https://github.com/afatihyavasi/CountryQuiz.git```
+```$ git clone https://github.com/afatihyavasi/Bulles.git```
 
 ### Install dependencies
 ```$ npm install```

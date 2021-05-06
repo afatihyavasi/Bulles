@@ -44,13 +44,3 @@ function App() {
 
 export default App;
 
-
-//TODO: Env ayarlarini ayarlaa
-
-//TODO: Kullanilmayan elemanlari temizle, errorlari kaldir.
-
-//TODO: PWA ayarla
-
-//TODO: Test et
-
-//TODO: Firebase de email tempalte de bulles linkine href ver

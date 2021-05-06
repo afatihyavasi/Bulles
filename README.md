@@ -4,7 +4,7 @@
 <p align="center">  <img  src="https://raw.githubusercontent.com/afatihyavasi/Bulles/master/src/assets/img/responsiveScreens.png"/>
  </p>  
 
-> [Demo](https://bulles-afatihyavasi.web.app/)
+> [Demo](https://bulles-afatihyavasi.firebaseapp.com/)
 
 ## Overview
 Bulles is a simple chat application where you can chat via channels.

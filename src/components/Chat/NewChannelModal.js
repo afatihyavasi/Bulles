@@ -42,7 +42,7 @@ const NewChannelModal = ({mobile}) => {
         <>
             <Tooltip label={'Create new channel'} aria-label='a tooltip'>
                 {
-                    mobile ? <Button bg={'none'} w='100%' rightIcon={<AddIcon/>} size={'xs'}> Create New Channel
+                    mobile ? <Button bg={'none'} w='100%' onClick={onOpen}  rightIcon={<AddIcon/>} size={'xs'}> Create New Channel
                         </Button>
                         : <IconButton aria-label={'New channel'} size='xs' colorScheme="purple" icon={<AddIcon/>}
                                       onClick={onOpen}/>

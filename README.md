@@ -4,7 +4,13 @@
 <p align="center">  <img  src="https://raw.githubusercontent.com/afatihyavasi/Bulles/master/src/assets/img/responsiveScreens.png"/>
  </p>  
 
-> [Demo](https://bulles-afatihyavasi.firebaseapp.com/)
+> [Demo](https://bulles-afatihyavasi.web.app/app)
+
+**NOTE :** If you want to try without opening an account, you can log in with this account.
+| E-MAIL|Password  |
+|--|--|
+|test@test.com  | 123456 |
+
 
 ## Overview
 Bulles is a simple chat application where you can chat via channels.
@@ -13,10 +19,8 @@ Bulles is a simple chat application where you can chat via channels.
 - React JS
 - React Redux
 - React Redux Firebase
-- React Hook Form
 - Chakra-UI
 - Firebase
-- Moment.js
 <hr/>
 
 <p align="center" >  <img width="200" height="400"   src="https://raw.githubusercontent.com/afatihyavasi/Bulles/master/src/assets/img/mobileDarkMockup.png"/>
@@ -30,7 +34,7 @@ To clone and run this application, you'll need Git and Node.js (which comes with
 
 
 ### Clone this repository
-```$ git clone https://github.com/afatihyavasi/Bulles.git```
+```$ git clone https://github.com/afatihyavasi/CountryQuiz.git```
 
 ### Install dependencies
 ```$ npm install```

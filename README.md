@@ -14,7 +14,7 @@ Bulles is a simple chat application where you can chat via channels.
 |test@test.com  | 123456 |
 
 
-## Builts With
+## Built With
 - React JS
 - React Redux
 - React Redux Firebase

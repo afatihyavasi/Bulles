@@ -32,7 +32,7 @@ const Root = () => {
             if (user) {
                 history.push("/app")
             } else {
-                history.push("/login")
+                history.push("/")
             }
         })
     }, [])

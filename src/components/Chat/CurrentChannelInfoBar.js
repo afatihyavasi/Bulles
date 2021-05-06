@@ -15,8 +15,8 @@ const CurrentChannelInfoBar = ({currentChannel}) => {
     }
     return (
         <>
-            <Flex direction={'column'} w={'100%'}  bg={useColorModeValue('gray.200', 'purple.500')} my={'0px'}>
-                <Accordion allowToggle >
+            <Flex direction={'column'} w={'100%'} bg={useColorModeValue('gray.200', 'purple.500')} my={'0px'}>
+                <Accordion allowToggle>
                     <AccordionItem>
                         <AccordionButton h={'5vh'}>
                             <Box flex="1" textAlign="center">
@@ -25,7 +25,7 @@ const CurrentChannelInfoBar = ({currentChannel}) => {
                             <AccordionIcon/>
                         </AccordionButton>
                         <Divider/>
-                        <AccordionPanel  pb={4} bg={useColorModeValue('gray.100', 'purple.400')}>
+                        <AccordionPanel pb={4} bg={useColorModeValue('gray.100', 'purple.400')}>
                             <Flex justify={'space-between'} align='center' my={'10px'}>
                                 <Text fontWeight={'bold'}>{`Created by:\u00A0`}
                                     <Tag colorScheme={findUserData(currentChannel.createdBy.name)?.color} mx={'5px'}>

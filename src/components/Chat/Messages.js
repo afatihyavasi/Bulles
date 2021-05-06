@@ -43,44 +43,44 @@ const Messages = ({currentChannel}) => {
     }
 
     return (
-        <div style={{overflow: 'auto', width: '100%', height: '100%'}} >
-        {channelMessages && channelMessages.map(({key, value}) => {
-            return (
-                <div key={key}>
-                    {/*// message Author and timestamp*/}
-                    <Box my={'5px'}>
-                        <Flex align={'center'}>
-                            <Tag colorScheme={value.user.color} mx={'5px'}>
-                                <Avatar bg={'gray.600'} src={findUserAvatar(value.user.name)} size={'2xs'}
-                                        ml={'2px'}/>
-                                <TagLabel ml={'5px'}>{value.user.name}</TagLabel>
-                            </Tag>
-                            <Text fontSize={"xs"}
-                                  color={timeColor}>
-                                {timeFromNow(value.timestamp)}</Text>
-                        </Flex>
+        <div style={{overflow: 'auto', width: '100%', height: '100%'}}>
+            {channelMessages && channelMessages.map(({key, value}) => {
+                return (
+                    <div key={key}>
+                        {/*// message Author and timestamp*/}
+                        <Box my={'5px'}>
+                            <Flex align={'center'}>
+                                <Tag colorScheme={value.user.color} mx={'5px'}>
+                                    <Avatar bg={'gray.600'} src={findUserAvatar(value.user.name)} size={'2xs'}
+                                            ml={'2px'}/>
+                                    <TagLabel ml={'5px'}>{value.user.name}</TagLabel>
+                                </Tag>
+                                <Text fontSize={"xs"}
+                                      color={timeColor}>
+                                    {timeFromNow(value.timestamp)}</Text>
+                            </Flex>
 
-                        <Flex>
-                            {isMedia(value) ? <Link href={value.image} isExternal><Image htmlWidth={'400px'}
-                                                                                         htmlHeight={'300px'}
-                                                                                         rounded={'sm'}
-                                                                                         m={'5px'}
-                                                                                         src={value.image}
-                                                                                         alt={`${value.user.name} send it`}
-                                                                                         cursor={'pointer'}
-                                /></Link>
-                                : <Text m={'5px'}>{value.content}</Text>
-                            }
-                        </Flex>
-                        <Divider/>
-                    </Box>
-                </div>
-            )
-        })}
+                            <Flex>
+                                {isMedia(value) ? <Link href={value.image} isExternal><Image htmlWidth={'400px'}
+                                                                                             htmlHeight={'300px'}
+                                                                                             rounded={'sm'}
+                                                                                             m={'5px'}
+                                                                                             src={value.image}
+                                                                                             alt={`${value.user.name} send it`}
+                                                                                             cursor={'pointer'}
+                                    /></Link>
+                                    : <Text m={'5px'}>{value.content}</Text>
+                                }
+                            </Flex>
+                            <Divider/>
+                        </Box>
+                    </div>
+                )
+            })}
             <div ref={lastMessageRef}></div>
-            </div>
+        </div>
 
-            );
-        };
+    );
+};
 
-    export default Messages;
+export default Messages;

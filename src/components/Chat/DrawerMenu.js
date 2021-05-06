@@ -7,16 +7,12 @@ import SidePanel from "./SidePanel";
 import DarkModeToggle from "../Nav/DarkModeToogle";
 import logo from '../../assets/img/bullesLogoAlt.svg';
 
-
-
 const DraverMenu = () => {
     const {isOpen, onOpen, onClose} = useDisclosure()
     const btnRef = useRef();
 
-
     return (
         <>
-
             <Tooltip label={'Open a menu'}>
                 <Image ref={btnRef} onClick={onOpen}
                        src={logo}

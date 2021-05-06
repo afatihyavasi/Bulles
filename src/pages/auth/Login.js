@@ -1,6 +1,6 @@
 import {
     Flex, Box, FormControl, FormLabel, Input, Link, InputRightElement,
-    Stack, Button, Heading, Text, Container, InputGroup,
+    Stack, Button, Heading, Text, InputGroup,
     useToast, useDisclosure, useColorModeValue,
     Modal, ModalOverlay, ModalHeader, ModalBody, ModalCloseButton, ModalContent
 } from '@chakra-ui/react';
@@ -24,7 +24,7 @@ const Login = () => {
     const {isOpen, onOpen, onClose} = useDisclosure();
     const toast = useToast();
 
-    const onSubmit = ({email, password}) => {
+    const onSubmit = ({email, password,}) => {
         setSubmit(true);
         setFbErrors('');
         firebase.login({email, password})
@@ -60,7 +60,6 @@ const Login = () => {
     const handleClick = () => setShow(!show);
     return (
         <>
-
             <Flex
                 minH={'100vh'}
                 align={'center'}
@@ -84,7 +83,6 @@ const Login = () => {
                         p={8}>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <Stack spacing={4}>
-
                                 <FormControl id="email" isInvalid={errors.email}>
                                     <FormLabel>Email address</FormLabel>
                                     <Input type="email"
@@ -166,7 +164,7 @@ const Login = () => {
                                             have an account?{" "}
 
                                             <Link as={_Link} to='/signup'
-                                             color={'teal.400'} p='1.5' rounded={'sm'}
+                                                  color={'teal.400'} p='1.5' rounded={'sm'}
                                                   _hover={
                                                       {
                                                           bg: 'teal.100',

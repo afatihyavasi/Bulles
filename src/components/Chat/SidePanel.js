@@ -5,7 +5,7 @@ import logo from '../../assets/img/bullesLogoAlt.svg';
 
 const SidePanel = () => {
     return (
-        <Flex direction="column" align='center' >
+        <Flex direction="column" align='center'>
 
             {/*App Name or logo*/}
             <Stack py='40px' boxSize={'50%'}>
@@ -13,14 +13,14 @@ const SidePanel = () => {
             </Stack>
 
             {/*New Channel Modal */}
-            <Flex w={'100%'}  align={'center'} bg='gray.700'
+            <Flex w={'100%'} align={'center'} bg='gray.400'
                   color={'gray.100'} justify={'space-between'} p={'5px'}>
-                <Text ml={'5px'}  fontWeight={'semibold'}>Channels</Text>
+                <Text ml={'5px'} fontWeight={'semibold'}>Channels</Text>
                 <NewChannelModal/>
             </Flex>
 
             {/*Channels*/}
-            <Flex w={'100%'} justify={'center'} >
+            <Flex w={'100%'} justify={'center'}>
                 <ChannelList/>
             </Flex>
 

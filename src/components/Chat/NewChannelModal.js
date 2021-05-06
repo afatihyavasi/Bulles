@@ -1,6 +1,7 @@
 import {
     Button,
-    FormControl, FormLabel, IconButton, Input, InputGroup, InputLeftAddon,
+    FormControl, FormLabel, IconButton,
+    Input, InputGroup, InputLeftAddon,
     Modal,
     ModalBody,
     ModalCloseButton,
@@ -41,12 +42,12 @@ const NewChannelModal = ({mobile}) => {
         <>
             <Tooltip label={'Create new channel'} aria-label='a tooltip'>
                 {
-                    mobile ? <Button bg={'none'} w='100%' rightIcon={<AddIcon/>} size={'xs'} > Create New Channel
+                    mobile ? <Button bg={'none'} w='100%' rightIcon={<AddIcon/>} size={'xs'}> Create New Channel
                         </Button>
-                        : <IconButton aria-label={'New channel'} size='xs'  colorScheme="purple" icon={<AddIcon/>} onClick={onOpen}/>
+                        : <IconButton aria-label={'New channel'} size='xs' colorScheme="purple" icon={<AddIcon/>}
+                                      onClick={onOpen}/>
 
                 }
-
             </Tooltip>
             <Modal
                 initialFocusRef={initialRef}
@@ -69,14 +70,11 @@ const NewChannelModal = ({mobile}) => {
                                     />
                                 </InputGroup>
                             </FormControl>
-
                             <FormControl mt={4}>
                                 <FormLabel>Description</FormLabel>
                                 <Input placeholder="Description"  {...register('description')}/>
                             </FormControl>
-
                         </ModalBody>
-
                         <ModalFooter>
                             <Button colorScheme="purple" w='80px' mr={3} type='submit'>
                                 Save

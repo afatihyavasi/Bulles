@@ -45,7 +45,6 @@ const SignUp = () => {
     const handleClick = () => setShow(!show);
     return (
         <>
-
             <Flex
                 minH={'100vh'}
                 align={'center'}
@@ -55,10 +54,10 @@ const SignUp = () => {
                     <NavForAuth/>
                 </Box>
 
-
                 <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
                     <Stack align={'center'}>
-                        <Heading fontSize={'3xl'} color={'pink.400'} textAlign={'center'}>Create your Bulles account 🙌</Heading>
+                        <Heading fontSize={'3xl'} color={'pink.400'} textAlign={'center'}>Create your Bulles account
+                            🙌</Heading>
                     </Stack>
                     <Box
                         rounded={'lg'}

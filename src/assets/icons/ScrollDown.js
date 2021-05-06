@@ -7,7 +7,7 @@ const ScrollDown = () => {
     return (
         <div className="container">
             <div className="field">
-                <div className={colorMode == 'light' ? "scroll" : "scrollDark"}/>
+                <div className={colorMode === 'light' ? "scroll" : "scrollDark"}/>
             </div>
         </div>
     );

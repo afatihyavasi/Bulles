@@ -34,38 +34,37 @@ const HomePage = () => {
     }
     return (
         <>
-                <Flex align={'center'} justify={'space-between'} w={'100%'} p={'1%'}>
-                    <DarkModeToggle/>
-                    <Flex my={'5px'}>
-                        <Button as={_Link} to="/signup" variant={'ghost'} bg={useColorModeValue('purple.50', 'none')}
-                                _hover={{bg: useColorModeValue('purple.100', 'none')}}
-                                colorScheme={'purple'}
-                                mr={'20px'}>Signup</Button>
-                        <Button as={_Link} to="/login" variant={'ghost'} bg={useColorModeValue('pink.50', 'none')}
-                                colorScheme={'pink'}
-                                _hover={{bg: useColorModeValue('pink.100', 'none')}}>Login</Button>
-                    </Flex>
+            <Flex align={'center'} justify={'space-between'} w={'100%'} py={'1%'} px={'4%'}>
+                <DarkModeToggle/>
+                <Flex my={'5px'}>
+                    <Button as={_Link} to="/signup" variant={'ghost'} bg={useColorModeValue('purple.50', 'none')}
+                            _hover={{bg: useColorModeValue('purple.100', 'none')}}
+                            colorScheme={'purple'}
+                            mr={'20px'}>Signup</Button>
+                    <Button as={_Link} to="/login" variant={'ghost'} bg={useColorModeValue('pink.50', 'none')}
+                            colorScheme={'pink'}
+                            _hover={{bg: useColorModeValue('pink.100', 'none')}}>Login</Button>
                 </Flex>
-
+            </Flex>
 
             <Container maxW="container.lg">
-                <Flex h={'88vh'}  border={'2px'} rounded={'lg'} my={'20px'} direction={'column'} justify={'center'} align={'center'}>
+                <Flex h={'88vh'} border={'2px'} rounded={'lg'} my={'20px'} direction={'column'} justify={'center'}
+                      align={'center'}>
                     <Image src={logoAlt} alt={'res'}/>
                     <Box onClick={handleClick}>
                         <ScrollDown screensSection={screensSection}/>
                     </Box>
-
                 </Flex>
 
                 <Divider/>
-                <Box >
+                <Box>
                     <Text w={'100%'} color={'gray.500'} my='50px' fontSize={['2xl', '3xl', '4xl']}>Fit all
                         screens.</Text>
                     <Image src={screens} alt={'res'}/>
                 </Box>
 
                 <Divider my={'40px'} ref={screensSection}/>
-                <Box w={'100%'} h={'100vh'} >
+                <Box w={'100%'} h={'100vh'}>
                     <Text fontSize={['3xl', '4xl', '5xl']} w='100%' my='3%' textAlign={'center'} color={'yellow.500'}>Dark
                         Mode ? Yes, try it here !</Text>
                     <Center w={'100%'} my={'3%'}><DarkModeToggle/></Center>
@@ -83,10 +82,7 @@ const HomePage = () => {
                     </Center>
                 </Box>
 
-
             </Container>
-
-
         </>
     );
 };

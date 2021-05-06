@@ -21,9 +21,7 @@ const ChannelSelector = () => {
                         <NewChannelModal mobile/>
                     </MenuItem>
                     <MenuDivider/>
-
                     <ChannelList mobile/>
-
                 </MenuList>
             </Menu>
         </>

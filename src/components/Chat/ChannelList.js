@@ -10,7 +10,7 @@ const ChannelList = ({mobile}) => {
     const channels = useSelector(state => state.firebase.ordered.channels);
     const currentChannel = useSelector(state => state.channelReducer.currentChannel);
     const [mounted, setMounted] = useState(false);
-    const borderColor = useColorModeValue('gray.200','gray.500');
+    const borderColor = useColorModeValue('gray.200', 'gray.500');
     useEffect(() => {
         if (!mounted && !isEmpty(channels)) {
             const {key, value} = channels[0];

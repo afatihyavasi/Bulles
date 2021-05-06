@@ -1,4 +1,4 @@
-import {Box,  Flex, useColorModeValue} from '@chakra-ui/react';
+import {Box, Flex, useColorModeValue} from '@chakra-ui/react';
 import SidePanel from "../components/Chat/SidePanel";
 import ChatArea from "../components/Chat/ChatArea";
 import {useSelector} from "react-redux";
@@ -14,12 +14,12 @@ function App() {
             <Box display={['none', 'block']}>
                 <Flex>
                     <Box h='100vh' w={'12%'}
-                         display={['none','none','block']}
+                         display={['none', 'none', 'block']}
                          bg={useColorModeValue('gray.50', 'gray.500')}>
                         <SidePanel/>
                     </Box>
-                    <Box h='100vh' w={['0','100%','88%']}>
-                        <ChatNav />
+                    <Box h='100vh' w={['0', '100%', '88%']}>
+                        <ChatNav/>
                         {currentChannel
                             ? <ChatArea currentChannel={currentChannel}/>
                             : <WithoutChannel/>
@@ -41,15 +41,16 @@ function App() {
         </>
     )
 }
+
 export default App;
 
 
-//TODO: HomePage , sayfalarini da tasarla
-//TODO: Login olunca otomatik app routing i degistirmeye calis
-//TODO: Singup ve login sayfalarinin ustundeki beyaz boslugu temizle
 //TODO: Env ayarlarini ayarlaa
-//TODO: Singup olunca renk atama fonksiyonu yanlis aclisiypr
+
 //TODO: Kullanilmayan elemanlari temizle, errorlari kaldir.
+
 //TODO: PWA ayarla
+
 //TODO: Test et
+
 //TODO: Firebase de email tempalte de bulles linkine href ver

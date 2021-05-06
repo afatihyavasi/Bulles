@@ -7,10 +7,10 @@ const WithoutChannel = () => {
             <Flex width={'100%'} h={'90vh'}
                   flexDirection={'column'}
                   p={'25px'}
-                   align={'center'}>
-                <Image src={image} boxSize={["65%",'40%']}
+                  align={'center'}>
+                <Image src={image} boxSize={["65%", '40%']}
                        alt={'Without channel image'}
-                       my={['20px','100px']}
+                       my={['20px', '100px']}
                 />
                 <Text color={'gray.700'} textAlign={'center'}
                       px={'15px'} py='5px' rounded={'lg'}

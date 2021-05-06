@@ -1,7 +1,6 @@
 import {useSelector} from "react-redux";
 import {
     Avatar,
-    Center,
     Flex,
     Text,
     Menu,
@@ -12,7 +11,6 @@ import {
 } from "@chakra-ui/react";
 import LogOut from "./LogOut";
 import AvatarChanger from "./AvatarChanger";
-
 
 const UserInfo = ({mobile}) => {
         const profile = useSelector(state => state.firebase.profile);
@@ -26,7 +24,7 @@ const UserInfo = ({mobile}) => {
                             <MenuList>
                                 <MenuItem>
                                     <Tag colorScheme={profile.color} mx={'5px'}>
-                                        <Avatar bg={'gray.600'} src={profile.avatar} size={'2xs'} 
+                                        <Avatar bg={'gray.600'} src={profile.avatar} size={'2xs'}
                                                 ml={'2px'}/>
                                         <TagLabel ml={'5px'}>{profile.name}</TagLabel>
                                     </Tag>

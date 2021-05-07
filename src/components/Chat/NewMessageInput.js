@@ -68,7 +68,7 @@ const NewMessageInput = ({currentChannel}) => {
                 <Flex w={'100%'} h={'5vh'}>
                     <IconButton icon={<AddIcon/>} onClick={() => fileInputRef.current.click()} aria-label={'add image'}
                                 mx={'10px'}/>
-                    <input type='file' style={{display: 'none'}} ref={fileInputRef} onChange={uploadMedia}/>
+                    <input type='file' accept="image/* style={{display: 'none'}} ref={fileInputRef} onChange={uploadMedia}/>
                     <Input onChange={(e) => setContent(e.target.value)} value={content}
                            mr={'10px'} placeholder={`Message #${currentChannel.channelName} `}/>
                 </Flex>

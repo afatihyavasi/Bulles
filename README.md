@@ -33,7 +33,7 @@ To clone and run this application, you'll need Git and Node.js (which comes with
 
 
 ### Clone this repository
-```$ git clone https://github.com/afatihyavasi/CountryQuiz.git```
+```$ git clone https://github.com/afatihyavasi/Bulles.git```
 
 ### Install dependencies
 ```$ npm install```
